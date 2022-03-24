@@ -1,0 +1,165 @@
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+$theme-colors: (
+  "primary": #31316f,
+  "secondary": #eea45e,
+  "dark": #131921,
+  "success": #198754,
+  "info": #0dcaf0,
+  "warning": #a7c227,
+  "danger": #dc3545,
+  "light": #f8f9fa,
+);
+
+/* import bootstrap to set changes */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$primary-color: #31316f;
+$secondary-color: #eea45e;
+$ternary-color: #f8f9fa;
+$white-color: #ffffff;
+
+p {
+  text-align: justify;
+}
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}
+
+.breadcrumb-item {
+  color: $white-color !important;
+}
+.custom {
+  color: $secondary-color;
+  text-decoration: none;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+#navbar {
+  padding: 0px !important;
+  .nav-link {
+    color: $white-color;
+    background-color: $primary-color;
+    padding-left: 15px;
+    padding-right: 15px;
+    &:hover {
+      color: $white-color;
+      background-color: $secondary-color;
+    }
+  }
+  .dropdown-menu {
+    background-color: $primary-color;
+  }
+  .dropdown-item {
+    color: $white-color;
+    &:hover {
+      color: $white-color;
+      background-color: $secondary-color;
+    }
+  }
+  .social {
+    a {
+      color: $primary-color;
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+#testimonial-slider {
+  .owl-carousel {
+    .owl-item img {
+      width: 200px !important;
+      display: initial !important;
+    }
+  }
+  p {
+    text-align: justify;
+    font-size: 14px;
+  }
+}
+
+// #coaching-inner {
+//   &::after {
+//     float: right;
+//     margin-top: 0.525em;
+//   }
+//   .dropdown-menu {
+//     width: 260px !important;
+//   }
+// }
+
+#footer {
+  a {
+    color: $white-color;
+    text-decoration: none;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+#about {
+  p {
+    text-align: justify;
+  }
+}
+
+.flipbook-icon-fa {
+  display: none !important;
+}
+
+#rcc-confirm-button {
+  margin-right: 200px !important;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
