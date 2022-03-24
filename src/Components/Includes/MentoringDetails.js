@@ -54,7 +54,7 @@ const MentoringDetails = () => {
 
   async function GetData() {
     try {
-      const response = await axios.get("coachingdata");
+      const response = await axios.get("/api/coachingdata");
       // console.log("getdata", response.data.data[0]);
       Setassociation([...Association, response.data.data[0]]);
       // console.log("Total", Association)

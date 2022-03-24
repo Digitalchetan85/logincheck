@@ -74,7 +74,7 @@ function App() {
     <div>
       <Router>
         <TopMenubar />
-        {/* <HomeModal /> */}
+        <HomeModal />
         <Routes>
           
             <>

@@ -13,7 +13,7 @@ const MainSlider = () => {
 
   useEffect(() => {
     axios
-      .get("getdata")
+      .get("/api/getdata")
       .then((response) => {
         // console.log(response.data.data);
         SetSlides(response.data.data);
