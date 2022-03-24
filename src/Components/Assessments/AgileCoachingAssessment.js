@@ -9,77 +9,103 @@ const AgileCoachingAssessment = () => {
     {
       id: 1,
       question:
-        "Roles & responsibilities and their relevant boundaries of each of the team members is clearly defined and understood by the team",
-      theme: "Roles",
-      category: "Cross Functional Team",
+        "Establish a warm, safe and supportive connection between coach and client",
+      coachingProcess: "Initiate the session",
+      coachingCompetency: "Establish Rapport",
     },
 
     {
       id: 2,
       question:
-        "An Agile Master has been identified within the team and on-boarded for transformation",
-      theme: "Roles",
-      category: "Product Management",
+        "Coach demonstrates curiosity to learn more about the client, inquires about or explores the words the client uses, the client’s emotions.the client’s energy shifts, nonverbal cues or other behaviors.",
+      coachingProcess: "Explore the client situation",
+      coachingCompetency: "Listens Actively",
     },
 
     {
       id: 3,
       question:
-        "The leadership understands their style, strengths and areas of improvement",
-      theme: "Leadership",
-      category: "Leadership Development",
+        "Coach invites or allows the client to explore progress made towards what the client wanted to accomplish in the session, relevance of the outcome from the session and inquires if anything needs to change ",
+      coachingProcess: "Check In",
+      coachingCompetency: "Evokes Awareness",
     },
 
     {
       id: 4,
       question:
         "The leadership understands their style, strengths and areas of improvement",
-      theme: "Leadership",
-      category: "Leadership Development",
+      coachingProcess: "Explore possibilities & wishful thinking",
+      coachingCompetency: "Maintains Presence",
     },
 
     {
       id: 5,
       question:
-        "Team members are  open to criticism and accept negative feedback looking at it as a means to improve their skills & personality to be more effective",
-      theme: "Team Culture",
-      category: "Ownership",
+        "Coach invites client to state or explore the client's learning in this session about themself (the who) and invites the client to state or explore the client's learning in this session about their situation (the what).",
+      coachingProcess: "Establish Actions",
+      coachingCompetency: "Facilitates Client Growth",
+    },
+    {
+      id: 6,
+      question: "Coach celebrates the client’s progress and learning",
+      coachingProcess: "Closing the Session",
+      coachingCompetency: "Facilitates Client Growth",
+    },
+
+    {
+      id: 7,
+      question: "Coach shows support, empathy or concern for the client.",
+      coachingProcess: "Establish Trust",
+      coachingCompetency: "Cultivates Trust & Safety",
     },
   ];
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, SetshowScore] = useState(false);
   const [Score, setScore] = useState(0);
 
-  const [Roles, setRoles] = useState([]);
-  const [RolesCFT, setRolesCFT] = useState([]);
-  const [RolesPM, setRolesPM] = useState([]);
-  const [RolesCol, setRolesCol] = useState([]);
+  const [Session, setSession] = useState([]);
+  const [SessionER, setSessionER] = useState([]);
+  const [SessionCA, setSessionCA] = useState([]);
+  // const [RolesCol, setRolesCol] = useState([]);
 
-  const [Leadership, setLeadership] = useState([]);
-  const [LeadershipLD, setLeadershipLD] = useState([]);
-  const [LeadershipT, setLeadershipT] = useState([]);
-  const [LeadershipA, setLeadershipA] = useState([]);
-  const [LeadershipO, setLeadershipO] = useState([]);
+  const [Client, setClient] = useState([]);
+  const [ClientPres, setClientPres] = useState([]);
+  const [ClientEvokes, setClientEvokes] = useState([]);
+  const [ClientLA, setClientLA] = useState([]);
+  // const [LeadershipO, setLeadershipO] = useState([]);
 
-  const [Practices, setPractices] = useState([]);
-  const [PracticesP, setPracticesP] = useState([]);
-  const [PracticesA, setPracticesA] = useState([]);
-  const [PracticesPM, setPracticesPM] = useState([]);
-  const [PracticesG, setPracticesG] = useState([]);
-  const [PracticesCol, setPracticesCol] = useState([]);
-  const [PracticesT, setPracticesT] = useState([]);
+  const [CheckIn, setCheckIn] = useState([]);
+  const [CheckEvoke, setCheckEvoke] = useState([]);
+  // const [PracticesA, setPracticesA] = useState([]);
+  // const [PracticesPM, setPracticesPM] = useState([]);
+  // const [PracticesG, setPracticesG] = useState([]);
+  // const [PracticesCol, setPracticesCol] = useState([]);
+  // const [PracticesT, setPracticesT] = useState([]);
 
-  const [TeamCulture, setTeamculture] = useState([]);
-  const [TeamCultureT, setTeamcultureT] = useState([]);
-  const [TeamCultureO, setTeamcultureO] = useState([]);
-  const [TeamCultureA, setTeamcultureA] = useState([]);
-  const [TeamCultureCol, setTeamcultureCol] = useState([]);
+  const [Wishful, setWishful] = useState([]);
+  const [WishfulEvoke, setWishfulEvoke] = useState([]);
+  const [WishfulMP, setWishfulMP] = useState([]);
+  // const [TeamCultureA, setTeamcultureA] = useState([]);
+  // const [TeamCultureCol, setTeamcultureCol] = useState([]);
 
-  const handleAnswerButtonClick = (isCorrect) => {
-    if (isCorrect === true) {
-      setScore(Score + 1);
-    }
-  };
+  // const handleAnswerButtonClick = (isCorrect) => {
+  //   if (isCorrect === true) {
+  //     setScore(Score + 1);
+  //   }
+  // };
+
+  const [Actions, setActions] = useState([]);
+  const [ActionsEvoke, setActionsEvoke] = useState([]);
+  const [ActionFCG, setActionFCG] = useState([]);
+  // const [RolesCol, setRolesCol] = useState([]);
+
+  const [Closing, setClosing] = useState([]);
+  const [ClosingFCG, setClosingFCG] = useState([]);
+
+  const [Trust, setTrust] = useState([]);
+  const [TrustMegps, setTrustMegps] = useState([]);
+  const [TrustCts, setTrustCts] = useState([]);
+  // const [RolesCol, setRolesCol] = useState([]);
 
   const initialValues = {
     applicable: "",
@@ -98,119 +124,258 @@ const AgileCoachingAssessment = () => {
     // const avgScore = "";
     for (var i = 0; i < questions.length; i++) {
       if (questions[currentQuestion].id === i) {
-        if (questions[currentQuestion].theme === "Roles") {
+        if (
+          questions[currentQuestion].coachingProcess === "Initiate the session"
+        ) {
           // setRoles((prevRoles) => prevRoles + Number(data.teamScore));
-          setRoles([...Roles, Number(data.teamScore)]);
-          if (questions[currentQuestion].category === "Cross Functional Team") {
-            // setRolesCFT(
-            // (prevRolesCFT) => prevRolesCFT + Number(data.teamScore)
-            setRolesCFT([...RolesCFT, Number(data.teamScore)]);
+          setSession([...Session, Number(data.teamScore)]);
+          if (
+            questions[currentQuestion].coachingCompetency ===
+            "Establish Rapport"
+          ) {
+            // setSessionER(
+            // (prevSessionER) => prevSessionER + Number(data.teamScore)
+            setSessionER([...SessionER, Number(data.teamScore)]);
             // );
           } else if (
-            questions[currentQuestion].category === "Product Management"
+            questions[currentQuestion].coachingCompetency ===
+            "Establishes Coaching Agreement"
           ) {
-            // setRolesPM((prevRolesPM) => prevRolesPM + Number(data.teamScore));
-            setRolesPM([...RolesPM, Number(data.teamScore)]);
+            // setSessionCA((prevSessionCA) => prevSessionCA + Number(data.teamScore));
+            setSessionCA([...SessionCA, Number(data.teamScore)]);
           } else {
             // setRolesCol(
             // (prevRolesCol) => prevRolesCol + Number(data.teamScore)
-            setRolesCol([...RolesCol, Number(data.teamScore)]);
+            // setRolesCol([...RolesCol, Number(data.teamScore)]);
             // );
           }
-        } else if (questions[currentQuestion].theme === "Leadership") {
+        } else if (
+          questions[currentQuestion].coachingProcess ===
+          "Explore the client situation"
+        ) {
           // setLeadership(
           // (prevLeadership) => prevLeadership + Number(data.teamScore)
-          setLeadership([...Leadership, Number(data.teamScore)]);
+          setClient([...Client, Number(data.teamScore)]);
           // );
           if (
-            questions[currentQuestion].category === "Leadership Development"
+            questions[currentQuestion].coachingCompetency ===
+            "Maintains Presence"
           ) {
-            // setLeadershipLD(
-            // (prevLeadershipLD) => prevLeadershipLD + Number(data.teamScore)
-            setLeadershipLD([...LeadershipLD, Number(data.teamScore)]);
+            // setClientPres(
+            // (prevClientPres) => prevClientPres + Number(data.teamScore)
+            setClientPres([...ClientPres, Number(data.teamScore)]);
             // );
-          } else if (questions[currentQuestion].category === "Transparency") {
-            // setLeadershipT(
-            // (prevLeadershipT) => prevLeadershipT + Number(data.teamScore)
-            setLeadershipT([...LeadershipT, Number(data.teamScore)]);
+          } else if (
+            questions[currentQuestion].coachingCompetency === "Evokes Awareness"
+          ) {
+            // setClientEvokes(
+            // (prevClientEvokes) => prevClientEvokes + Number(data.teamScore)
+            setClientEvokes([...ClientEvokes, Number(data.teamScore)]);
             // );
-          } else if (questions[currentQuestion].category === "Autonomy") {
-            // setLeadershipA(
-            // (prevLeadershipA) => prevLeadershipA + Number(data.teamScore)
-            setLeadershipA([...LeadershipA, Number(data.teamScore)]);
+          } else if (
+            questions[currentQuestion].coachingCompetency === "Listens Actively"
+          ) {
+            // setClientLA(
+            // (prevClientLA) => prevClientLA + Number(data.teamScore)
+            setClientLA([...ClientLA, Number(data.teamScore)]);
             // );
           } else {
             // setLeadershipO(
             // (prevLeadershipO) => prevLeadershipO + Number(data.teamScore)
-            setLeadershipO([...LeadershipO, Number(data.teamScore)]);
+            // setLeadershipO([...LeadershipO, Number(data.teamScore)]);
             // );
           }
-        } else if (questions[currentQuestion].theme === "Practices") {
+        } else if (questions[currentQuestion].coachingProcess === "Check In") {
           // setPractices(
           // (prevPractices) => prevPractices + Number(data.teamScore)
-          setPractices([...Practices, Number(data.teamScore)]);
+          setCheckIn([...CheckIn, Number(data.teamScore)]);
           // );
-          if (questions[currentQuestion].category === "Practices") {
+          if (
+            questions[currentQuestion].coachingCompetency === "Evoke AwareNess"
+          ) {
             // setPracticesP(
             // (prevPracticesP) => prevPracticesP + Number(data.teamScore)
-            setPracticesP([...PracticesP, Number(data.teamScore)]);
-            // );
-          } else if (questions[currentQuestion].category === "Transparency") {
-            // setPracticesT(
-            // (prevPracticesT) => prevPracticesT + Number(data.teamScore)
-            setPracticesT([...PracticesT, Number(data.teamScore)]);
-            // );
-          } else if (questions[currentQuestion].category === "Autonomy") {
-            // setPracticesA(
-            // (prevPracticesA) => prevPracticesA + Number(data.teamScore)
-            setPracticesA([...PracticesA, Number(data.teamScore)]);
-            // );
-          } else if (
-            questions[currentQuestion].category === "Product Management"
-          ) {
-            // setPracticesPM(
-            // (prevPracticesPM) => prevPracticesPM + Number(data.teamScore)
-            setPracticesPM([...PracticesPM, Number(data.teamScore)]);
-            // );
-          } else if (questions[currentQuestion].category === "Governance") {
-            // setPracticesG(
-            // (prevPracticesG) => prevPracticesG + Number(data.teamScore)
-            setPracticesG([...PracticesG, Number(data.teamScore)]);
-            // );
-          } else {
-            // setPracticesCol(
-            // (prevPracticesCol) => prevPracticesCol + Number(data.teamScore)
-            setPracticesCol([...PracticesCol, Number(data.teamScore)]);
+            setCheckEvoke([...CheckEvoke, Number(data.teamScore)]);
             // );
           }
-        } else if (questions[currentQuestion].theme === "Team Culture") {
+          // else if (questions[currentQuestion].coachingCompetency === "Transparency") {
+          //   // setPracticesT(
+          //   // (prevPracticesT) => prevPracticesT + Number(data.teamScore)
+          //   // setPracticesT([...PracticesT, Number(data.teamScore)]);
+          //   // );
+          // }
+          // else if (questions[currentQuestion].coachingCompetency === "Autonomy") {
+          //   // setPracticesA(
+          //   // (prevPracticesA) => prevPracticesA + Number(data.teamScore)
+          //   // setPracticesA([...PracticesA, Number(data.teamScore)]);
+          //   // );
+          // }
+          // else if (
+          //   questions[currentQuestion].coachingCompetency === "Product Management"
+          // )
+          //  {
+          //   // setPracticesPM(
+          //   // (prevPracticesPM) => prevPracticesPM + Number(data.teamScore)
+          //   // setPracticesPM([...PracticesPM, Number(data.teamScore)]);
+          //   // );
+          // }
+          // else if (questions[currentQuestion].coachingCompetency === "Governance") {
+          //   // setPracticesG(
+          //   // (prevPracticesG) => prevPracticesG + Number(data.teamScore)
+          //   // setPracticesG([...PracticesG, Number(data.teamScore)]);
+          //   // );
+          // }
+          // else {
+          //   // setPracticesCol(
+          //   // (prevPracticesCol) => prevPracticesCol + Number(data.teamScore)
+          //   // setPracticesCol([...PracticesCol, Number(data.teamScore)]);
+          //   // );
+          // }
+        } else if (
+          questions[currentQuestion].coachingProcess ===
+          "Explore possibilities & wishful thinking"
+        ) {
           // setTeamculture(
           // (prevTeamculture) => prevTeamculture + Number(data.teamScore)
-          setTeamculture([...TeamCulture, Number(data.teamScore)]);
+          setWishful([...Wishful, Number(data.teamScore)]);
           // );
-          if (questions[currentQuestion].category === "Transparency") {
-            // setTeamcultureT(
-            // (prevTeamcultureT) => prevTeamcultureT + Number(data.teamScore)
-            setTeamcultureT([...TeamCultureT, Number(data.teamScore)]);
+          if (
+            questions[currentQuestion].coachingCompetency === "Evokes Awareness"
+          ) {
+            // setWishfulEvoke(
+            // (prevWishfulEvoke) => prevWishfulEvoke + Number(data.teamScore)
+            setWishfulEvoke([...WishfulEvoke, Number(data.teamScore)]);
             // );
-          } else if (questions[currentQuestion].category === "Ownership") {
-            // setTeamcultureO(
-            // (prevTeamcultureO) => prevTeamcultureO + Number(data.teamScore)
-            setTeamcultureO([...TeamCultureO, Number(data.teamScore)]);
-            // );
-          } else if (questions[currentQuestion].category === "Collaboration") {
-            // setTeamcultureCol(
-            //   (prevTeamcultureCol) =>
-            // prevTeamcultureCol + Number(data.teamScore)
-            setTeamcultureCol([...TeamCultureCol, Number(data.teamScore)]);
-            // );
-          } else {
-            // setTeamcultureA(
-            // (prevTeamcultureA) => prevTeamcultureA + Number(data.teamScore)
-            setTeamcultureA([...TeamCultureA, Number(data.teamScore)]);
+          } else if (
+            questions[currentQuestion].coachingCompetency ===
+            "Maintains Presence"
+          ) {
+            // setWishfulMP(
+            // (prevWishfulMP) => prevWishfulMP + Number(data.teamScore)
+            setWishfulMP([...WishfulMP, Number(data.teamScore)]);
             // );
           }
+          // else if (questions[currentQuestion].coachingCompetency === "Collaboration") {
+          //   // setTeamcultureCol(
+          //   //   (prevTeamcultureCol) =>
+          //   // prevTeamcultureCol + Number(data.teamScore)
+          //   // setTeamcultureCol([...TeamCultureCol, Number(data.teamScore)]);
+          //   // );
+          // }
+          // else {
+          //   // setTeamcultureA(
+          //   // (prevTeamcultureA) => prevTeamcultureA + Number(data.teamScore)
+          //   // setTeamcultureA([...TeamCultureA, Number(data.teamScore)]);
+          //   // );
+          // }
+        } else if (
+          questions[currentQuestion].coachingProcess === "Establish Actions"
+        ) {
+          // setLeadership(
+          // (prevLeadership) => prevLeadership + Number(data.teamScore)
+          setActions([...Actions, Number(data.teamScore)]);
+          // );
+          if (
+            questions[currentQuestion].coachingCompetency === "Evokes Awareness"
+          ) {
+            // setClientPres(
+            // (prevClientPres) => prevClientPres + Number(data.teamScore)
+            setActionsEvoke([...ActionsEvoke, Number(data.teamScore)]);
+            // );
+          } else if (
+            questions[currentQuestion].coachingCompetency ===
+            "Facilitates Client Growth"
+          ) {
+            // setClientEvokes(
+            // (prevClientEvokes) => prevClientEvokes + Number(data.teamScore)
+            setActionFCG([...ActionFCG, Number(data.teamScore)]);
+            // );
+          } 
+          // else if (questions[currentQuestion].coachingCompetency === "") {
+          //   // setClientLA(
+          //   // (prevClientLA) => prevClientLA + Number(data.teamScore)
+          //   setClientLA([...ClientLA, Number(data.teamScore)]);
+          //   // );
+          // } else {
+          //   // setLeadershipO(
+          //   // (prevLeadershipO) => prevLeadershipO + Number(data.teamScore)
+          //   // setLeadershipO([...LeadershipO, Number(data.teamScore)]);
+          //   // );
+          // }
+        } 
+        else if (
+          questions[currentQuestion].coachingProcess === "Closing the Session"
+        ) {
+          // setLeadership(
+          // (prevLeadership) => prevLeadership + Number(data.teamScore)
+          setClosing([...Closing, Number(data.teamScore)]);
+          // );
+          if (
+            questions[currentQuestion].coachingCompetency ===
+            "Facilitates Client Growth"
+          ) {
+            // setClientPres(
+            // (prevClientPres) => prevClientPres + Number(data.teamScore)
+            setClosingFCG([...ClosingFCG, Number(data.teamScore)]);
+            // );
+          } 
+          // else if (
+          //   questions[currentQuestion].coachingCompetency === "Evokes Awareness"
+          // ) {
+          //   // setClientEvokes(
+          //   // (prevClientEvokes) => prevClientEvokes + Number(data.teamScore)
+          //   setClientEvokes([...ClientEvokes, Number(data.teamScore)]);
+          //   // );
+          // } else if (
+          //   questions[currentQuestion].coachingCompetency === "Listens Actively"
+          // ) {
+          //   // setClientLA(
+          //   // (prevClientLA) => prevClientLA + Number(data.teamScore)
+          //   setClientLA([...ClientLA, Number(data.teamScore)]);
+          //   // );
+          // } else {
+          //   // setLeadershipO(
+          //   // (prevLeadershipO) => prevLeadershipO + Number(data.teamScore)
+          //   // setLeadershipO([...LeadershipO, Number(data.teamScore)]);
+          //   // );
+          // }
         }
+        else if (
+          questions[currentQuestion].coachingProcess ===
+          "Establish Trust"
+        ) {
+          // setLeadership(
+          // (prevLeadership) => prevLeadership + Number(data.teamScore)
+          setTrust([...Trust, Number(data.teamScore)]);
+          // );
+          if (
+            questions[currentQuestion].coachingCompetency ===
+            "Meeting Ethical Guidelines & Professional Standards"
+          ) {
+            // setClientPres(
+            // (prevClientPres) => prevClientPres + Number(data.teamScore)
+            setTrustMegps([...TrustMegps, Number(data.teamScore)]);
+            // );
+          } else if (
+            questions[currentQuestion].coachingCompetency === "Cultivates Trust & Safety"
+          ) {
+            // setClientEvokes(
+            // (prevClientEvokes) => prevClientEvokes + Number(data.teamScore)
+            setTrustCts([...TrustCts, Number(data.teamScore)]);
+            // );
+          }
+          // else if (questions[currentQuestion].coachingCompetency === "Listens Actively") {
+          //   // setClientLA(
+          //   // (prevClientLA) => prevClientLA + Number(data.teamScore)
+          //   setClientLA([...ClientLA, Number(data.teamScore)]);
+          //   // );
+          // } else {
+          //   // setLeadershipO(
+          //   // (prevLeadershipO) => prevLeadershipO + Number(data.teamScore)
+          //   // setLeadershipO([...LeadershipO, Number(data.teamScore)]);
+          //   // );
+          // }
+        } 
         // // console.log("hello first");
       }
     }
@@ -221,46 +386,58 @@ const AgileCoachingAssessment = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       SetshowScore(true);
-      setRoles(Roles.reduce((p, c) => p + c, 0) / Roles.length);
-      setRolesCFT(RolesCFT.reduce((p, c) => p + c, 0) / RolesCFT.length);
-      setRolesPM(RolesPM.reduce((p, c) => p + c, 0) / RolesPM.length);
-      setRolesCol(RolesCol.reduce((p, c) => p + c, 0) / RolesCol.length);
-      setLeadership(Leadership.reduce((p, c) => p + c, 0) / Leadership.length);
-      setLeadershipLD(
-        LeadershipLD.reduce((p, c) => p + c, 0) / LeadershipLD.length
+      setSession(Session.reduce((p, c) => p + c, 0) / Session.length);
+      setSessionER(SessionER.reduce((p, c) => p + c, 0) / SessionER.length);
+      setSessionCA(SessionCA.reduce((p, c) => p + c, 0) / SessionCA.length);
+      // setRolesCol(RolesCol.reduce((p, c) => p + c, 0) / RolesCol.length);
+      setClient(Client.reduce((p, c) => p + c, 0) / Client.length);
+      setClientPres(ClientPres.reduce((p, c) => p + c, 0) / ClientPres.length);
+      setClientEvokes(
+        ClientEvokes.reduce((p, c) => p + c, 0) / ClientEvokes.length
       );
-      setLeadershipT(
-        LeadershipT.reduce((p, c) => p + c, 0) / LeadershipT.length
+      // setLeadershipO(
+      //   LeadershipO.reduce((p, c) => p + c, 0) / LeadershipO.length
+      // );
+      // setPractices(Practices.reduce((p, c) => p + c, 0) / Practices.length);
+      // setPracticesP(PracticesP.reduce((p, c) => p + c, 0) / PracticesP.length);
+      // setPracticesT(PracticesT.reduce((p, c) => p + c, 0) / PracticesT.length);
+      // setPracticesA(PracticesA.reduce((p, c) => p + c, 0) / PracticesA.length);
+      // setPracticesPM(
+      //   PracticesPM.reduce((p, c) => p + c, 0) / PracticesPM.length
+      // );
+      // setPracticesG(PracticesG.reduce((p, c) => p + c, 0) / PracticesG.length);
+      // setPracticesCol(
+      //   PracticesCol.reduce((p, c) => p + c, 0) / PracticesCol.length
+      // );
+      setWishful(Wishful.reduce((p, c) => p + c, 0) / Wishful.length);
+      setWishfulEvoke(
+        WishfulEvoke.reduce((p, c) => p + c, 0) / WishfulEvoke.length
       );
-      setLeadershipO(
-        LeadershipO.reduce((p, c) => p + c, 0) / LeadershipO.length
+      setWishfulMP(WishfulMP.reduce((p, c) => p + c, 0) / WishfulMP.length);
+      // setTeamcultureA(
+      //   TeamCultureA.reduce((p, c) => p + c, 0) / TeamCultureA.length
+      // );
+      // setTeamcultureCol(
+      //   TeamCultureCol.reduce((p, c) => p + c, 0) / TeamCultureCol.length
+      // );
+      setActions(Actions.reduce((p, c) => p + c, 0) / Actions.length);
+      setActionsEvoke(
+        ActionsEvoke.reduce((p, c) => p + c, 0) / ActionsEvoke.length
       );
-      setPractices(Practices.reduce((p, c) => p + c, 0) / Practices.length);
-      setPracticesP(PracticesP.reduce((p, c) => p + c, 0) / PracticesP.length);
-      setPracticesT(PracticesT.reduce((p, c) => p + c, 0) / PracticesT.length);
-      setPracticesA(PracticesA.reduce((p, c) => p + c, 0) / PracticesA.length);
-      setPracticesPM(
-        PracticesPM.reduce((p, c) => p + c, 0) / PracticesPM.length
+      setActionFCG(ActionFCG.reduce((p, c) => p + c, 0) / ActionFCG.length);
+
+      setClosing(Closing.reduce((p, c) => p + c, 0) / Closing.length);
+      setClosingFCG(
+        ClosingFCG.reduce((p, c) => p + c, 0) / ClosingFCG.length
       );
-      setPracticesG(PracticesG.reduce((p, c) => p + c, 0) / PracticesG.length);
-      setPracticesCol(
-        PracticesCol.reduce((p, c) => p + c, 0) / PracticesCol.length
+      // setWishfulMP(WishfulMP.reduce((p, c) => p + c, 0) / WishfulMP.length);
+
+      setTrust(Trust.reduce((p, c) => p + c, 0) / Trust.length);
+      setTrustMegps(
+        TrustMegps.reduce((p, c) => p + c, 0) / TrustMegps.length
       );
-      setTeamculture(
-        TeamCulture.reduce((p, c) => p + c, 0) / TeamCulture.length
-      );
-      setTeamcultureT(
-        TeamCultureT.reduce((p, c) => p + c, 0) / TeamCultureT.length
-      );
-      setTeamcultureO(
-        TeamCultureO.reduce((p, c) => p + c, 0) / TeamCultureO.length
-      );
-      setTeamcultureA(
-        TeamCultureA.reduce((p, c) => p + c, 0) / TeamCultureA.length
-      );
-      setTeamcultureCol(
-        TeamCultureCol.reduce((p, c) => p + c, 0) / TeamCultureCol.length
-      );
+      setTrustCts(TrustCts.reduce((p, c) => p + c, 0) / TrustCts.length);
+
     }
   };
 
@@ -271,18 +448,18 @@ const AgileCoachingAssessment = () => {
   });
 
   const graphData = [
-    { name: "Cross Functional Team", x: RolesCFT },
-    { name: "Product Management", x: RolesPM },
-    { name: "Leadership Development", x: LeadershipLD },
-    { name: "Ownership", x: TeamCultureO },
-    { name: "Practices", x: PracticesP },
+    { name: "Cross Functional Team", x: SessionER },
+    { name: "Product Management", x: SessionCA },
+    { name: "Leadership Development", x: ClientPres },
+    { name: "Ownership", x: WishfulMP },
+    { name: "Practices", x: CheckIn },
   ];
 
   const graphDataTheme = [
-    { name: "Roles", x: Roles },
-    { name: "Practices", x: Practices },
-    { name: "Team Culture", x: TeamCulture },
-    { name: "Leadership", x: Leadership },
+    { name: "Roles", x: Session },
+    { name: "Practices", x: CheckIn },
+    { name: "Team Culture", x: Wishful },
+    { name: "Leadership", x: Client },
   ];
 
   return (
@@ -296,7 +473,8 @@ const AgileCoachingAssessment = () => {
             <Row className="justify-content-center mt-5 mb-5">
               <Col md={8}>
                 <div className="score-section p-5 bg-light shadow text-center text-primary fw-bold">
-                  {Roles} {RolesCFT}you scored {Score} out of {questions.length}{" "}
+                  {Session} {SessionER}you scored {Score} out of{" "}
+                  {questions.length}{" "}
                 </div>
 
                 {/* <RadarGraph /> */}

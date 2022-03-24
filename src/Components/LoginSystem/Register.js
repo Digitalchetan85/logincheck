@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Container } from "react-bootstrap";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import axios from "axios";
-import swal from "sweetalert";
-import { useNavigate } from "react-router-dom";
+// import swal from "sweetalert";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -21,8 +21,9 @@ const Register = () => {
         .then((response) => {
           console.log(response);
           if (response.data.status === 200) {
-              swal("Success",response.data.message,"success")
-              navigate('/agility');
+            // swal("Success",response.data.message,"success")
+            SetErrors({ ...Errors, SuccessMessage: response.data.message });
+            // navigate("/agility");
           } else {
             SetErrors(response.data.validation_errors);
           }
@@ -41,6 +42,7 @@ const Register = () => {
             <div className="p-3 bg-light shadow-sm my-5">
               <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
+                  <h5 className="text-primary text-center">Register Form</h5>
                   <Row className="mb-3">
                     <Col md={12}>
                       <div className="mb-3">
@@ -89,15 +91,16 @@ const Register = () => {
                       </div>
                     </Col>
                   </Row>
+                  {Errors.SuccessMessage ? Errors.SuccessMessage : ""}
                   <Row className="mb-3">
                     <Col md={12}>
                       <div className="text-center">
                         <Button className="btn btn-primary mx-1" type="submit">
-                          Register 
+                          Register
                         </Button>
-                        <Button className="btn btn-primary mx-1" type="submit">
+                        <Link className="btn btn-primary mx-1" to="/login">
                           Login
-                        </Button>
+                        </Link>
                       </div>
                     </Col>
                   </Row>

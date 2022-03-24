@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Container, Alert } from "react-bootstrap";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
@@ -46,6 +46,7 @@ const Login = () => {
             <div className="p-3 bg-light shadow-sm my-5">
               <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
+                  <h4 className="text-primary text-center">Login Form</h4>
                   {show ? (
                     <Alert
                       variant="danger"
@@ -76,11 +77,11 @@ const Login = () => {
                   <Row className="mb-3">
                     <Col md={12}>
                       <div className="mb-3">
-                        <label htmlFor="name" className="form-label">
+                        <label htmlFor="name" className="form-label" >
                           Password
                         </label>
                         <Field
-                          type="text"
+                          type="password"
                           className="form-control"
                           id="password"
                           name="password"
@@ -92,8 +93,8 @@ const Login = () => {
                   <Row className="mb-3">
                     <Col md={12}>
                       <div className="">
-                        <Button className="btn btn-secondary" type="submit">
-                          Checkout
+                        <Button className="btn btn-primary" type="submit">
+                          Login
                         </Button>
                       </div>
                     </Col>

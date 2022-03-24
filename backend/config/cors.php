@@ -30,5 +30,6 @@ return [
     'max_age' => 0,
 
     'supports_credentials' => true,
+    'Access-Control-Allow-Origin' => ['*'],
 
 ];
