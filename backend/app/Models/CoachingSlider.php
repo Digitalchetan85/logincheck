@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class CoachingSlider extends Model
 {
     use HasFactory;
-    public $table = 'promotion';
 }

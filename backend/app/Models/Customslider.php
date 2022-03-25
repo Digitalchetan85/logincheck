@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customslider extends Model
+class CustomSlider extends Model
 {
     use HasFactory;
-    public $table = 'customslider';
 }
