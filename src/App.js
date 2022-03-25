@@ -67,15 +67,20 @@ import Manifesto from "./Components/Includes/Manifesto";
 import Login from "./Components/LoginSystem/Login";
 import Register from "./Components/LoginSystem/Register";
 import Assessments1 from "./Components/Assessments/assessments1";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
   
   return (
     <div>
       <Router>
-        <TopMenubar />
-        <HomeModal />
+        {/* <TopMenubar /> */}
+        {/* <HomeModal /> */}
         <Routes>
+
+          <>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </>
           
             <>
               <Route path="/register" element={<Register />}></Route>
@@ -250,7 +255,7 @@ function App() {
           
           <Route path="/login" element={<Navigate to={"/login" }/>}/>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
