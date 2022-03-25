@@ -132,6 +132,7 @@ function App() {
               ></Route>
               <Route path="/assessments" element={<Assessments />}></Route>
               <Route path="/sample-assessment-test" element={<Assessments1 />}></Route>
+              <Route path="/assessments-coaching" element={<AgileCoachingAssessment />}></Route>
               <Route path="/dasa-flipbook" element={<DasaFlipbook />}></Route>
               <Route
                 path="/experiential-learning-programs"

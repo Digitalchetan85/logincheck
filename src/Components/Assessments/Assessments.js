@@ -12,7 +12,7 @@ const Assessments = () => {
       desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: 1999,
       ActualPrice: 599,
-      to: "/sample-assessment-test",
+      to: "/assessments-coaching",
     },
     {
       id: 2,
