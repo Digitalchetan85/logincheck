@@ -448,18 +448,24 @@ const AgileCoachingAssessment = () => {
   });
 
   const graphData = [
-    { name: "Cross Functional Team", x: SessionER },
-    { name: "Product Management", x: SessionCA },
-    { name: "Leadership Development", x: ClientPres },
+    { name: "Establish Rapport", x: SessionER },
+    { name: "Establishes Coaching Agreement", x: SessionCA },
+    { name: "Listens Actively", x: ClientLA },    
+    { name: "Evokes Awareness", x: CheckEvoke },
     { name: "Ownership", x: WishfulMP },
     { name: "Practices", x: CheckIn },
   ];
 
   const graphDataTheme = [
-    { name: "Roles", x: Session },
-    { name: "Practices", x: CheckIn },
-    { name: "Team Culture", x: Wishful },
-    { name: "Leadership", x: Client },
+    { name: "Intiate the Session", x: Session },
+    { name: "Check In", x: CheckIn },
+    { name: "Explore possibilities & wishful thinking", x: Wishful },
+    { name: "Explore the client situation", x: Client },    
+    { name: "Establish Actions", x: Actions },
+    { name: "Closing the Session", x: Closing },
+    { name: "Establish Trust", x: Trust },
+
+  
   ];
 
   return (
