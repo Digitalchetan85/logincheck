@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Assessments = () => {
   const courses = [
@@ -38,6 +40,7 @@ const Assessments = () => {
   ];
   return (
     <div>
+      <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>
           <Row>
@@ -103,7 +106,7 @@ const Assessments = () => {
                     </div>
                     <Card.Text className="text-center">{course.desc}</Card.Text>
                     <Card.Title className="text-primary">
-                      <del>${course.price}</del> ${course.ActualPrice}
+                      <del>$ {course.price}</del> $ {course.ActualPrice}
                     </Card.Title>
                     <div className="">
                       <Button
@@ -121,6 +124,7 @@ const Assessments = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

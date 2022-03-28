@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import ExperientialFormik from "./ExperientialFormik";
 import axios from "axios"
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const ExperientialPopup = (props) => {
   const [Timing, setSchedule] = useState([]);

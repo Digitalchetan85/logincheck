@@ -5,6 +5,8 @@ import video2 from "../Images/esm-participant-videos/anish-learnings.mp4";
 import video3 from "../Images/esm-participant-videos/arjun-learnings.mp4";
 import EACimage from "../Images/experimental-learning-programs/dai-eac/eac.png";
 import ExperientialPopup from "./ExperientialPopup";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const ExperientialLearningPrograms = () => {
   const VideoLink = [
@@ -24,6 +26,7 @@ const ExperientialLearningPrograms = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
@@ -130,7 +133,7 @@ const ExperientialLearningPrograms = () => {
         </Container>
       </div>
 
-      
+      <Footer />
     </div>
   );
 };

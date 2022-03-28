@@ -1,9 +1,12 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 
 const AgileLeadershipAssessment = () => {
   return (
     <div>
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -39,6 +42,7 @@ const AgileLeadershipAssessment = () => {
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 text-center">
           <h3 className="mt-5 mb-5">Coming Soon</h3>
       </div>
+      <Footer />
     </div>
   );
 };

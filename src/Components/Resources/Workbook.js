@@ -6,10 +6,13 @@ import image3 from "../Images/workbooks/prism-of-life.png";
 import image4 from "../Images/workbooks/prism-of-Life-2.png";
 import paimage from "../Images/workbooks/personal-agility-workbook.png";
 import Workbook199Model from "./Workbook199Model";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Workbook = () => {
   return (
     <div>
+      <TopMenubar />
       <div className="bg-primary">
         <Container>
           <Row>
@@ -285,6 +288,7 @@ const Workbook = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

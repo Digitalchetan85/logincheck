@@ -2,10 +2,13 @@ import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import BlogImage from "../Images/blogs/blog-5.png";
 import BlogImage1 from "../Images/blogs/blog-51.png";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 
 const Blog5 = () => {
   return (
     <div>
+      <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>
           <Row>
@@ -252,6 +255,7 @@ const Blog5 = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

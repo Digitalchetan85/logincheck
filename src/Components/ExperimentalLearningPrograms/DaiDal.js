@@ -1,9 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 
 const DaiDal = () => {
   
   return (
     <>
+    <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -212,6 +215,7 @@ const DaiDal = () => {
           </Row> */}
         </Container>
       </div>
+      <Footer />
     </>
   );
 };

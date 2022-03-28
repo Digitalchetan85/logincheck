@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 import PayPal from "../PayPal/PayPal";
 
 const DasaFlipbook = () => {
@@ -124,6 +126,7 @@ const DasaFlipbook = () => {
   const [checkout, setCheckout] = useState(false);
   return (
     <>
+    <TopMenubar />
       <div id="ic-agile-flipbook" className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>
           <Row>
@@ -298,6 +301,7 @@ const DasaFlipbook = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </>
   );
 };

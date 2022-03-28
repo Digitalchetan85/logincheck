@@ -9,6 +9,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import icpAcc from "../Images/capability-building-programs/icp-acc.png";
 import agile from "../Images/agile-visa.png";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const IcAgileIcpAcc = () => {
   let history = useNavigate();
@@ -158,6 +160,7 @@ const IcAgileIcpAcc = () => {
 
   return (
     <>
+    <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -322,8 +325,8 @@ const IcAgileIcpAcc = () => {
                   Course Name: <strong>IC - Agile (ICP - ACC)</strong>
                 </p>
                 <p>
-                  Course Price: <del>${CourseActualPrice} </del>{" "}
-                  <strong> ${CoursePrice}</strong>
+                  Course Price: <del>$ {CourseActualPrice} </del>
+                  <strong> $ {CoursePrice}</strong>
                 </p>
                 <p>
                   Course Price: <del> (INR 151030/-) </del>{" "}
@@ -442,6 +445,7 @@ const IcAgileIcpAcc = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </>
   );
 };

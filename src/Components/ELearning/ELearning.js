@@ -1,5 +1,7 @@
 import React from "react";
 import { Col, Container, Row} from "react-bootstrap";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 import AgileCoachingFundamentals from "./AgileCoachingFundamentals";
 import AgileFundamentals from "./AgileFundamentals";
 
@@ -26,7 +28,8 @@ const ELearning = () => {
   // ];
   return (
     <div>
-      <div id="ic-agile" className="bg-primary">
+      <TopMenubar />
+    <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
             <Col md={12}>
@@ -86,6 +89,7 @@ const ELearning = () => {
           <AgileCoachingFundamentals /> 
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import imgurl from "../Images/e-learning-programs/14.png";
 const AgileCoachingFundamentals = () => {
   return (
     <div>
-      {/* <div id="ic-agile" className="bg-primary">
+           {/* <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
             <Col md={12}>
@@ -104,7 +104,7 @@ const AgileCoachingFundamentals = () => {
           </Row>
         </Container>
       </div>
-    </div>
+     </div>
   );
 };
 

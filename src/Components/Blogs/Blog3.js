@@ -16,10 +16,13 @@ import innerimage11 from "../Images/blogs/blog-313.png";
 import innerimage12 from "../Images/blogs/blog-314.png";
 import innerimage13 from "../Images/blogs/blog-315.png";
 import innerimage14 from "../Images/blogs/blog-316.png";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Blog3 = () => {
   return (
     <div>
+      <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>
           <Row>
@@ -308,6 +311,7 @@ const Blog3 = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

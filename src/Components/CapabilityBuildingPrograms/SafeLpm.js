@@ -8,6 +8,8 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import icpLpm from "../Images/capability-building-programs/safe/lpm.png";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const SafeLpm = () => {
   let history = useNavigate();
@@ -149,6 +151,7 @@ const SafeLpm = () => {
   }, []);
   return (
     <>
+    <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -402,6 +405,7 @@ const SafeLpm = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </>
   );
 };

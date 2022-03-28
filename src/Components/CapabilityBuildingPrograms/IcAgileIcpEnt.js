@@ -9,6 +9,8 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import icpEnt from "../Images/capability-building-programs/icp-ent.png";
 import agile from "../Images/agile-visa.png";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const IcAgileIcpEnt = () => {
   let history = useNavigate();
@@ -151,6 +153,7 @@ const IcAgileIcpEnt = () => {
   }, []);
   return (
     <>
+    <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -414,6 +417,7 @@ const IcAgileIcpEnt = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </>
   );
 };

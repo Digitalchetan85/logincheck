@@ -6,6 +6,8 @@ import topImage from "../Images/mentoring/top-image.png";
 import imgurl from "../Images/mentoring/9.png";
 import imgurl1 from "../Images/mentoring/10.png";
 import MentoringModel from "./MentoringModel";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Mentoring = () => {
   const [show, setShow] = useState(false);
@@ -14,6 +16,7 @@ const Mentoring = () => {
   const handleShow = () => setShow(true);
   return (
     <div>
+      <TopMenubar />
       <div className="bg-primary">
         <Container>
           <Row>
@@ -209,6 +212,7 @@ const Mentoring = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

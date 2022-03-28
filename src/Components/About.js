@@ -7,10 +7,13 @@ import jayaram from "./Images/about/jayaram.png";
 import Mahesh from "./Images/about/mahesh.png";
 import jayramCertifications from "./Images/about/jayarm-certifications.png";
 import anuCertifications from "./Images/about/anu-certifications.png";
+import TopMenubar from "./Includes/TopMenubar";
+import Footer from "./Includes/Footer";
 
 const About = () => {
   return (
-    <div>
+    <>
+      <TopMenubar />
       <div id="about-us" className="bg-primary">
         <Container>
           <Row>
@@ -422,7 +425,8 @@ const About = () => {
           </Row>
         </Container>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

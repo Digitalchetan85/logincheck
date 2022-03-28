@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import img1 from "../Images/capability-building-programs/dasa/dasa.png";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Dasa = () => {
   const courses = [
@@ -17,6 +19,7 @@ const Dasa = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
@@ -68,6 +71,7 @@ const Dasa = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

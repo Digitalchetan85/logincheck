@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Row, Form, Col, Container, Button, Modal } from "react-bootstrap";
 import UseForm from "../Components/ContactFrom/UseForm";
 import Validation from "../Components/ContactFrom/Validation";
+import Footer from "./Includes/Footer";
+import TopMenubar from "./Includes/TopMenubar";
 
 const Contact = () => {
   const [FormDisplayClass, SetFormDisplayClass] = useState("d-none");
@@ -21,6 +23,7 @@ const Contact = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="about-us" className="bg-primary">
         <Container>
           <Row>
@@ -244,6 +247,7 @@ const Contact = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 
 const YoutubeVideos = () => {
   const playlistFirstLinks = [
@@ -274,6 +276,7 @@ const YoutubeVideos = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
@@ -416,6 +419,7 @@ const YoutubeVideos = () => {
           </Row>
         </Container>
       </div>
+      <Footer />  
     </div>
   );
 };

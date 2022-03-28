@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
 import * as Yup from "yup";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 import ReactRadar from "./ReactRadar";
 
 const AgileCoachingAssessment = () => {
@@ -470,6 +472,7 @@ const AgileCoachingAssessment = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <h2 className="text-center text-white">Assessments</h2>
       </div>
@@ -591,6 +594,7 @@ const AgileCoachingAssessment = () => {
           </Container>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -12,6 +12,8 @@ import {
   Form,
 } from "react-bootstrap";
 import axios from "axios";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const AddPromotionalImage = () => {
 
@@ -46,6 +48,7 @@ const AddPromotionalImage = () => {
   };
 
   return (
+  
     <div className="sb-nav-fixed">
       <DashboardNavabar />
 
@@ -156,6 +159,7 @@ const AddPromotionalImage = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 

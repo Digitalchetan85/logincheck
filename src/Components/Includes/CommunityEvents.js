@@ -6,6 +6,8 @@ import ESMimage from "../Images/experimental-learning-programs/dai-esm/dai-esm.p
 import video1 from "../Images/esm-participant-videos/chandru-learnings.mp4";
 import video2 from "../Images/esm-participant-videos/anish-learnings.mp4";
 import video3 from "../Images/esm-participant-videos/arjun-learnings.mp4";
+import TopMenubar from "./TopMenubar";
+import Footer from "./Footer";
 
 const CommunityEvents = () => {
 
@@ -26,6 +28,7 @@ const CommunityEvents = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
@@ -233,6 +236,7 @@ const CommunityEvents = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
 
 

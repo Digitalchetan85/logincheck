@@ -4,6 +4,8 @@ import { Button } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const DaiEsm = () => {
   const [formStatus, setformStatus] = useState("");
@@ -125,6 +127,7 @@ const DaiEsm = () => {
 
   return (
     <>
+    <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -349,6 +352,7 @@ const DaiEsm = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </>
   );
 };

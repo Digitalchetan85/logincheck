@@ -5,6 +5,8 @@ import img2 from "../Images/coaching/09.png";
 import imgurl from "../Images/coaching/11.png";
 import imgurl1 from "../Images/coaching/11.png";
 import MentoringModel from "../Mentoring/MentoringModel";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Coaching = () => {
   const [show, setShow] = useState(false);
@@ -13,6 +15,7 @@ const Coaching = () => {
   const handleShow = () => setShow(true);
   return (
     <div>
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -176,6 +179,7 @@ const Coaching = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

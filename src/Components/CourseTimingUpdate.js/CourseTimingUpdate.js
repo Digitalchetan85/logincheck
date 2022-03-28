@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Col, Container, Row, Button } from "react-bootstrap";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 
 const CourseTimingUpdate = () => {
   const [formStatus, setformStatus] = useState("");
@@ -39,6 +41,8 @@ const CourseTimingUpdate = () => {
     coursetiming: Yup.string().required("required").min(3),
   });
   return (
+    <>
+    <TopMenubar />
     <div className="mt-5 mb-5">
       <Container>
         <Row className="justify-content-center">
@@ -123,6 +127,9 @@ const CourseTimingUpdate = () => {
         </Row>
       </Container>
     </div>
+    <Footer />
+
+    </>
   );
 };
 

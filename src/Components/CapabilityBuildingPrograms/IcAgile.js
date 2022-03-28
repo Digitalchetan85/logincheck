@@ -9,6 +9,8 @@ import img5 from "../Images/capability-building-programs/icp-ent.png";
 import img6 from "../Images/capability-building-programs/icp-pdv.png";
 import { Link } from "react-router-dom";
 import agile from "../Images/agile-visa.png";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const IcAgile = () => {
   const courses = [
@@ -71,6 +73,7 @@ const IcAgile = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
@@ -122,7 +125,7 @@ const IcAgile = () => {
                       {course.title}
                     </Card.Title>
                     <Card.Title className="text-primary">
-                      <del>${course.price}</del> ${course.ActualPrice}
+                      <del>$ {course.price}</del> $ {course.ActualPrice}
                     </Card.Title>
                     <Button variant="outline-primary" as={Link} to={course.to}>
                       Read more
@@ -134,6 +137,7 @@ const IcAgile = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

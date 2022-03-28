@@ -1,11 +1,14 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import ToolkitImage from "../Images/workbooks/agile-coaching-toolkit.png";
+import Footer from "../Includes/Footer";
+import TopMenubar from "../Includes/TopMenubar";
 import Workbook199Model from "./Workbook199Model";
 
 const ReusableTemplates = () => {
   return (
     <div>
+      <TopMenubar />
       <div className="bg-primary">
         <Container>
           <Row>
@@ -88,6 +91,7 @@ const ReusableTemplates = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -6,6 +6,8 @@ import img3 from "../Images/capability-building-programs/safe/sasm.png";
 import img4 from "../Images/capability-building-programs/safe/popm.png";
 import img5 from "../Images/capability-building-programs/safe/lpm.png";
 import { Link } from "react-router-dom";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Safe = () => {
   const courses = [
@@ -53,6 +55,7 @@ const Safe = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
@@ -101,6 +104,7 @@ const Safe = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

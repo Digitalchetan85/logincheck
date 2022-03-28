@@ -15,6 +15,8 @@ import img12 from "../Images/blogs/blog-12.png";
 import img13 from "../Images/blogs/blog-13.png";
 import img14 from "../Images/blogs/blog-14.png";
 import { Link } from "react-router-dom";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Blogs = () => {
   const blogs = [
@@ -148,6 +150,7 @@ const Blogs = () => {
 
   return (
     <div>
+      <TopMenubar />
       <div className="bg-primary">
         <Container>
           <Row>
@@ -190,6 +193,7 @@ const Blogs = () => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };
