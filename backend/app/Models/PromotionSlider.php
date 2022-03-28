@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PromotionSlider extends Model
 {
     use HasFactory;
+    protected $fillable = ['coursename', 'imageurl', 'alt', 'link'];
 }

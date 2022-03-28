@@ -16,9 +16,9 @@ class PopupSliderSeeder extends Seeder
     public function run()
     {
         DB::table('popup_sliders')->insert([
-            'name'=>'Popup Slider',
+            'imageurl'=>'https://digitalagilityinstitute.com/Api/images/website-pop-up-image.png',
             'alt'=>'Popup',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/website-pop-up-image.png'
+            'link'=>'https://www.digitalagilityinstitute.com/document/objective-definition-workbook.pdf'
         ]);
     }
 }

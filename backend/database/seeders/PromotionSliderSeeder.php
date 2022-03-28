@@ -18,8 +18,9 @@ class PromotionSliderSeeder extends Seeder
         DB::table('promotion_sliders')->insert([
             
             'coursename'=>'Coaching',
+            'imageurl'=>'https://digitalagilityinstitute.com/Api/images/promotion/promotion.png',
             'alt'=>'Agile Coaching SAFE',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/promotion/promotion.png'
+            'link'=>'/contact-us'
         ]);
     }
 }

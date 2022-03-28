@@ -21,6 +21,10 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::get('getdata', [CustomController::class, 'getdata']);
 Route::get('coachingdata', [CustomController::class, 'coachingdata']);
+Route::get('mentoringdata', [CustomController::class, 'mentoringdata']);
+Route::get('promotionalimages', [CustomController::class, 'promotionalimages']);
+Route::get('promotionalimages/{id}', [CustomController::class, 'EditPromotionalImages']);
+Route::post('add-promotional-image', [CustomController::class, 'AddPromotionalImages']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);

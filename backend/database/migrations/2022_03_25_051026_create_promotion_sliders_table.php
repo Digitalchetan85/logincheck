@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('promotion_sliders', function (Blueprint $table) {
             $table->id();
             $table->string('coursename');
+            $table->string('imageurl');
             $table->string('alt');
             $table->string('link');
             $table->timestamps();

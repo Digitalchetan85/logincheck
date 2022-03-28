@@ -16,9 +16,9 @@ class MentoringSliderSeeder extends Seeder
     public function run()
     {
         DB::table('mentoring_sliders')->insert([
-            'name'=>'Mentoring',
+            'imageurl'=>'https://digitalagilityinstitute.com/Api/images/promotion/coaching-promotion.png',
             'alt'=>'Mentoring Coaching Promotion',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/promotion/coaching-promotion.png'
+            'link'=>'/contact-us'
         ]);
     }
 }

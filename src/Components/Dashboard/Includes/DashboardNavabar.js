@@ -1,18 +1,21 @@
 import React from "react";
+import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import logo from '../../Images/dashboard-logo.png';
 
 const DashboardNavabar = () => {
   return (
     <div>
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         {/* <!-- Navbar Brand--> */}
-        <a className="navbar-brand ps-3" href="index.html">
-          Start Bootstrap
-        </a>
+        <Link className="navbar-brand ps-3" to="/dashboard">
+          <Image src={logo} alt="Logo" className="img-fluid" />
+        </Link>
         {/* <!-- Sidebar Toggle--> */}
         <button
           className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
           id="sidebarToggle"
-          href="#!"
+          to="#!"
         >
           <i className="fas fa-bars"></i>
         </button>
@@ -34,37 +37,37 @@ const DashboardNavabar = () => {
         {/* <!-- Navbar--> */}
         <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
           <li className="nav-item dropdown">
-            <a
+            <Link
               className="nav-link dropdown-toggle"
               id="navbarDropdown"
-              href="#"
+              to="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               <i className="fas fa-user fa-fw"></i>
-            </a>
+            </Link>
             <ul
               className="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdown"
             >
               <li>
-                <a className="dropdown-item" href="#!">
+                <Link className="dropdown-item" to="#!">
                   Settings
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="dropdown-item" href="#!">
+                <Link className="dropdown-item" to="#!">
                   Activity Log
-                </a>
+                </Link>
               </li>
               <li>
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a className="dropdown-item" href="#!">
+                <Link className="dropdown-item" to="#!">
                   Logout
-                </a>
+                </Link>
               </li>
             </ul>
           </li>

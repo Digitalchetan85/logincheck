@@ -12,10 +12,13 @@ import "react-owl-carousel2/src/owl.theme.default.css";
 import HomeTestimonials from "./Includes/HomeTestimonials";
 import HomeAssessments from "./Includes/HomeAssessments";
 import HomeDIY from "./Includes/HomeDIY";
+import TopMenubar from "./Includes/TopMenubar";
+import Footer from "./Includes/Footer";
 
 const Home = () => {
   return (
     <>
+      <TopMenubar />
       <MainSlider />
       <div id="about" className="pt-3 pb-3 pt-md-5 pb-md-5 bg-light">
         <Container>
@@ -170,6 +173,7 @@ const Home = () => {
       </div>
 
       <HomeTestimonials />
+      <Footer />
     </>
   );
 };

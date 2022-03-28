@@ -15,46 +15,48 @@ class CustomSliderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('custom_sliders')->insert([
-            'name'=>'Custom Slider',
-            'alt'=>'Expertimental Learning Programs',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/1.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Capability Build Programs',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/2.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Individual & Leadership Assessments',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/3.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Do It Yourself Workbooks',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/4.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Book Reviews',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/5.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Community Learning Programs',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/6.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Mentoring Scrumm Masters & Agile Coaches',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/7.png'
-        ],
-        [
-            'name'=>'Custom Slider',
-            'alt'=>'Executive Coaching & Team Coaching',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/slider/8.png'
-        ]
-    );
+        $data = [
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/1.png',
+                'alt' => 'Expertimental Learning Programs',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/2.png',
+                'alt' => 'Capability Build Programs',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/3.png',
+                'alt' => 'Individual & Leadership Assessments',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/4.png',
+                'alt' => 'Do It Yourself Workbooks',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/5.png',
+                'alt' => 'Book Reviews',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/6.png',
+                'alt' => 'Community Learning Programs',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/7.png',
+                'alt' => 'Mentoring Scrumm Masters & Agile Coaches',
+                'link' => '/contact-us'
+            ],
+            [
+                'imageurl' => 'https://digitalagilityinstitute.com/Api/images/slider/8.png',
+                'alt' => 'Executive Coaching & Team Coaching',
+                'link' => '/contact-us'
+            ]
+        ];
+        DB::table('custom_sliders')->insert($data);
     }
 }

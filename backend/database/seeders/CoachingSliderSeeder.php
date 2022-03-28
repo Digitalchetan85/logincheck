@@ -16,9 +16,9 @@ class CoachingSliderSeeder extends Seeder
     public function run()
     {
         DB::table('coaching_sliders')->insert([
-            'name'=>'Coaching',
+            'imageurl'=>'https://digitalagilityinstitute.com/Api/images/promotion/promotion.png',
             'alt'=>'Promotion',
-            'link'=>'https://digitalagilityinstitute.com/Api/images/promotion/promotion.png'
+            'link'=>'/contact-us'
         ]);
     }
 }

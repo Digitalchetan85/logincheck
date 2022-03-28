@@ -5,7 +5,7 @@ const Dashboardsidebar = () => {
   return (
     <div>
       <nav
-        className="sb-sidenav accordion sb-sidenav-dark"
+        className="sb-sidenav accordion sb-sidenav-dark position-fixed"
         id="sidenavAccordion"
       >
         <div className="sb-sidenav-menu">
@@ -16,43 +16,43 @@ const Dashboardsidebar = () => {
               </div>
               Dashboard
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/payment">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-file-invoice-dollar"></i>
               </div>
               Payment
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/promotion-images">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-home"></i>
               </div>
               Promotion Images
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/home-slider">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-images"></i>
               </div>
               Home Slider
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/popup-slider">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-images"></i>
               </div>
               Popup Slider
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/mentoring-slider">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-images"></i>
               </div>
               Mentoring Slider
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/coaching-slider">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-images"></i>
               </div>
               Coaching Slider
             </Link>
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/dashboard/course-schedule">
               <div className="sb-nav-link-icon">
               <i className="fas fa-calendar-alt"></i>
               </div>
