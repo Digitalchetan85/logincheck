@@ -19,12 +19,16 @@ const Login = () => {
       axios
         .post(`/api/login`, values)
         .then((res) => {
-          //   console.log(res);
+            console.log(res);
           if (res.data.status === 200) {
               localStorage.setItem("auth_token", res.data.token);
               localStorage.setItem("auth_name", res.data.username);
               swal("Success", res.data.message,"success");
-              navigate('/agility')
+              if (res.data.admin === "1") {
+                navigate('/dashboard')
+              } else {
+                navigate('/agility')
+              }
           } else if (res.data.status === 401) {
             SetErrors({ ...Errors, ErrorMessage: res.data.message });
             setShow(true);
