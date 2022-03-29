@@ -25,6 +25,7 @@ Route::get('mentoringdata', [CustomController::class, 'mentoringdata']);
 Route::get('promotional-images', [CustomController::class, 'promotionalimages']);
 Route::get('promotionalimages/{id}', [CustomController::class, 'EditPromotionalImages']);
 Route::post('add-promotional-image', [CustomController::class, 'AddPromotionalImages']);
+Route::post('update-promotional-image', [CustomController::class, 'UpdatePromotionalImages']);
 Route::post('delete-promotional-image', [CustomController::class, 'DeletePromotionalImages']);
 
 Route::get('home-slider', [CustomController::class, 'HomeSlider']);
@@ -39,11 +40,24 @@ Route::post('add-popup-image', [CustomController::class, 'AddPopSlider']);
 Route::post('update-popup-image', [CustomController::class, 'UpdatePopSlider']);
 Route::post('delete-popup-image', [CustomController::class, 'DeletePopSlider']);
 
-Route::get('mentoring-slider', [CustomController::class, 'PopSlider']);
+Route::get('mentoring-slider', [CustomController::class, 'MentoringSlider']);
 Route::get('mentoring-slider/{id}', [CustomController::class, 'EditMentoringSlider']);
 Route::post('add-mentoring-slider-image', [CustomController::class, 'AddMentoringSlider']);
 Route::post('update-mentoring-slider-image', [CustomController::class, 'UpdateMentoringSlider']);
 Route::post('delete-mentoring-slider-image', [CustomController::class, 'DeleteMentoringSlider']);
+
+Route::get('coaching-slider', [CustomController::class, 'CoachingSlider']);
+Route::get('coaching-slider/{id}', [CustomController::class, 'EditCoachingSlider']);
+Route::post('add-coaching-slider-image', [CustomController::class, 'AddCoachingSlider']);
+Route::post('update-coaching-slider-image', [CustomController::class, 'UpdateCoachingSlider']);
+Route::post('delete-coaching-slider-image', [CustomController::class, 'DeleteCoachingSlider']);
+
+Route::get('course-schedule', [CustomController::class, 'CourseSchedule']);
+Route::get('course-schedule/{id}', [CustomController::class, 'EditCourseSchedule']);
+Route::post('add-course-schedule', [CustomController::class, 'AddCourseSchedule']);
+Route::post('update-course-schedule', [CustomController::class, 'UpdateCourseSchedule']);
+Route::post('delete-course-schedule', [CustomController::class, 'DeleteCourseSchedule']);
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);

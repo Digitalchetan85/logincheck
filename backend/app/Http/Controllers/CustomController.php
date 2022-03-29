@@ -7,6 +7,7 @@ use App\Models\CustomSlider;
 use App\Models\MentoringSlider;
 use App\Models\PopupSlider;
 use App\Models\PromotionSlider;
+use App\Models\ScheduleTiming;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -366,7 +367,7 @@ class CustomController extends Controller
     // Mentoring Slider
 
     public function MentoringSlider (Request $req) {
-        $data = PopupSlider::all();
+        $data = MentoringSlider::all();
         if ($data) {
             return response()->json([
                 'status' => 200,
@@ -394,7 +395,7 @@ class CustomController extends Controller
                 'validation_errors' => $validator->errors(),
             ]);
         } else {
-            PopupSlider::create([
+            MentoringSlider::create([
                 'imageurl' => $req->imageurl,
                 'alt' => $req->alt,
                 'link' => $req->link
@@ -421,7 +422,7 @@ class CustomController extends Controller
                 'validation_errors' => $validator->errors(),
             ]);
         } else {
-            PopupSlider::where('id', $req->id)->update([
+            MentoringSlider::where('id', $req->id)->update([
                 'imageurl' => $req->imageurl,
                 'alt' => $req->alt,
                 'link' => $req->link
@@ -435,7 +436,7 @@ class CustomController extends Controller
     }
 
     public function EditMentoringSlider($id) {
-        $data = PopupSlider::find($id);
+        $data = MentoringSlider::find($id);
 
         if ($data) {
             return response()->json([
@@ -452,7 +453,210 @@ class CustomController extends Controller
 
     public function DeleteMentoringSlider (Request $req) {
         // return $req->all();
-        $data = PopupSlider::where('id', $req->id)->delete();
+        $data = MentoringSlider::where('id', $req->id)->delete();
+
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'message' => "Successfully deleted"
+            ]);
+        } else {
+            return response()->json([
+                'status' => 401,
+                'message' => 'Sorry Try again'
+            ]);
+        }
+    }
+
+    // Coaching Slider
+    
+    public function CoachingSlider (Request $req) {
+        $data = CoachingSlider::all();
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Records not found'
+            ]);
+        }
+    }
+
+    public function AddCoachingSlider(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'imageurl' => 'required',
+            'alt' => 'required',
+            'link' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 401,
+                'validation_errors' => $validator->errors(),
+            ]);
+        } else {
+            CoachingSlider::create([
+                'imageurl' => $req->imageurl,
+                'alt' => $req->alt,
+                'link' => $req->link
+            ]);
+        }
+
+        return response()->json([
+            "status" => 201,
+            "message" => "Successfully Added the HomeSlider Image"
+        ]);
+    }
+
+    public function UpdateCoachingSlider(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'imageurl' => 'required',
+            'alt' => 'required',
+            'link' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 401,
+                'validation_errors' => $validator->errors(),
+            ]);
+        } else {
+            CoachingSlider::where('id', $req->id)->update([
+                'imageurl' => $req->imageurl,
+                'alt' => $req->alt,
+                'link' => $req->link
+            ]);
+        }
+
+        return response()->json([
+            "status" => 201,
+            "message" => "Successfully Added the HomeSlider Image"
+        ]);
+    }
+
+    public function EditCoachingSlider($id) {
+        $data = CoachingSlider::find($id);
+
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'status' => 401,
+                'message' => 'Sorry Data Not Found in the database'
+            ]);
+        }
+    }
+
+    public function DeleteCoachingSlider (Request $req) {
+        // return $req->all();
+        $data = CoachingSlider::where('id', $req->id)->delete();
+
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'message' => "Successfully deleted"
+            ]);
+        } else {
+            return response()->json([
+                'status' => 401,
+                'message' => 'Sorry Try again'
+            ]);
+        }
+    }
+
+    // Course Schedule
+    public function CourseSchedule(Request $req) {
+        $data = ScheduleTiming::all();
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Records not found'
+            ]);
+        }
+    }
+
+    public function AddCourseSchedule(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'coursename' => 'required',
+            'coursetimings' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 401,
+                'validation_errors' => $validator->errors(),
+            ]);
+        } else {
+            ScheduleTiming::create([
+                'coursename' => $req->coursename,
+                'coursetimings' => $req->coursetimings,
+            ]);
+        }
+
+        return response()->json([
+            "status" => 201,
+            "message" => "Successfully Added Course Details"
+        ]);
+    }
+
+    public function UpdateCourseSchedule(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'coursename' => 'required',
+            'coursetimings' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 401,
+                'validation_errors' => $validator->errors(),
+            ]);
+        } else {
+            ScheduleTiming::where('id', $req->id)->update([
+                'coursename' => $req->coursename,
+                'coursetimings' => $req->coursetimings,
+            ]);
+        }
+
+        return response()->json([
+            "status" => 201,
+            "message" => "Successfully Added the HomeSlider Image"
+        ]);
+    }
+
+    public function EditCourseSchedule($id) {
+        $data = ScheduleTiming::find($id);
+
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'status' => 401,
+                'message' => 'Sorry Data Not Found in the database'
+            ]);
+        }
+    }
+
+    public function DeleteCourseSchedule (Request $req) {
+        // return $req->all();
+        $data = ScheduleTiming::where('id', $req->id)->delete();
 
         if ($data) {
             return response()->json([

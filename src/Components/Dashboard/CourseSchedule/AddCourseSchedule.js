@@ -5,25 +5,23 @@ import Dashboardsidebar from "../Includes/Dashboardsidebar";
 import "../assets/js/scripts";
 import { Button, Col, Container, Row, Card, Form } from "react-bootstrap";
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const AddCourseSchedule = () => {
-  const [coursename, Setcoursename] = useState("");
-  const [imageurl, SetImgurl] = useState("");
-  const [alt, Setalt] = useState("");
-  const [link, Setlink] = useState("");
+  const [coursename, SetCoursename] = useState("");
+  const [coursetimings, SetCoursetimings] = useState("");
   const navigate = useNavigate();
 
   const [Errors, SetErrors] = useState("");
 
-  const submit = (e) => {
+  const Submit = (e) => {
     e.preventDefault();
-    const values = { coursename, imageurl, alt, link };
+    const values = { coursename, coursetimings };
     // console.log(values);
 
     axios
-      .post("/api/add-homeslider-image", values)
+      .post("/api/add-course-schedule", values)
       .then((res) => {
         // console.log(res.data.validation_errors);
         if (res.data.status === 401) {
@@ -38,7 +36,7 @@ const AddCourseSchedule = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/dashboard/home-slider')
+          navigate("/dashboard/course-schedule");
         }
       })
       .catch((err) => {
@@ -64,52 +62,38 @@ const AddCourseSchedule = () => {
                 <Col md={12}>
                   <Card>
                     <Card.Header className="text-center bg-primary text-white">
-                      Add New Home Slider Image
+                      Add Course Timing
                     </Card.Header>
                     <Card.Body>
-                      <Form onSubmit={submit}>
+                      <Form onSubmit={Submit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                          <Form.Label>Image URL</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder=""
-                            name="imageurl"
-                            value={imageurl}
-                            onChange={(e) => SetImgurl(e.target.value)}
-                          />
-                          <small className="text-danger">
-                            {Errors.imageurl}
-                          </small>
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                          <Form.Label>Alternative Text</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder=""
-                            name="alt"
-                            value={alt}
-                            onChange={(e) => Setalt(e.target.value)}
-                          />
-                          <small className="text-danger">{Errors.alt}</small>
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                          <Form.Label>Custom Page Link</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder=""
-                            name="link"
-                            value={link}
-                            onChange={(e) => Setlink(e.target.value)}
-                          />
-                          <small className="text-danger">{Errors.link}</small>
-                          <Button
-                            variant="primary"
-                            type="submit"
-                            className="form-control mt-3"
+                          <Form.Select
+                            aria-label="Default select example"
+                            name="coursename"
+                            onChange={(e) => SetCoursename(e.target.value)}
                           >
-                            Submit
-                          </Button>
+                            <option>{coursename}</option>
+                            <option value="ICP - CAT">ICP - CAT</option>
+                            <option value="ICP - ENT">ICP - ENT</option>
+                            <option value="ICP - PDV">ICP - PDV</option>
+                            <option value="ICP - ACC">ICP - ACC</option>
+                            <option value="ICP - ATF">ICP - ATF</option>
+                            <option value="ICP - ORG">ICP - ORG</option>
+                          </Form.Select>
                         </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter Timing"
+                            value={coursetimings}
+                            name="coursetimings"
+                            onChange={(e) => SetCoursetimings(e.target.value)}
+                          />
+                        </Form.Group>
+
+                        <Button type="submit" className="btn btn-primary">
+                          Save Changes
+                        </Button>
                       </Form>
                     </Card.Body>
                   </Card>

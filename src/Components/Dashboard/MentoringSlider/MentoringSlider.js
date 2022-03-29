@@ -30,7 +30,7 @@ const MentoringSlider = () => {
 
   const DeleteImage = id => {
     //   console.log('Delete', id);
-    axios.post('/api/delete-popslider-image', {id: id}).then((result) => {
+    axios.post('/api/delete-mentoring-slider-image', {id: id}).then((result) => {
         // console.log('Response', response)
         if (result.data.status === 200 ) {
             Swal.fire({
@@ -61,10 +61,10 @@ const MentoringSlider = () => {
                   <h2 className="py-2 text-primary">Pop Images</h2>
                   <div className="text-end py-2">
                     <Link
-                      to="/dashboard/popup-slider-image"
+                      to="/dashboard/mentoring-slider-image"
                       className="btn btn-primary"
                     >
-                      Add Popup Image
+                      Add Mentoring Slider Image
                     </Link>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ const MentoringSlider = () => {
                                   <td>
                                     <div className="">
                                       <Link
-                                        to={`/dashboard/edit-popupslider-image/${data.id}`}
+                                        to={`/dashboard/edit-mentoringslider-image/${data.id}`}
                                         className="btn-sm btn-primary m-1 text-decoration-none"
                                       >
                                         <i className="fa fa-edit"></i>

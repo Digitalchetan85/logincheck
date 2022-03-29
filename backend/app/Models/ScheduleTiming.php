@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ScheduleTiming extends Model
 {
     use HasFactory;
+    protected $fillable = ['coursename', 'coursetimings'];
 }

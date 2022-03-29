@@ -12,7 +12,7 @@ const CoachingSlider = () => {
   const [Data, SetData] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/popupimages`).then((response) => {
+    axios.get(`/api/coaching-slider`).then((response) => {
       // console.log(response)
       if (response.data.status === 200) {
         SetData(response.data.data);
@@ -30,7 +30,7 @@ const CoachingSlider = () => {
 
   const DeleteImage = id => {
     //   console.log('Delete', id);
-    axios.post('/api/delete-popslider-image', {id: id}).then((result) => {
+    axios.post('/api/delete-coaching-slider-image', {id: id}).then((result) => {
         // console.log('Response', response)
         if (result.data.status === 200 ) {
             Swal.fire({
@@ -58,13 +58,13 @@ const CoachingSlider = () => {
             <div id="table" className="py-3">
               <Container>
                 <div className="">
-                  <h2 className="py-2 text-primary">Pop Images</h2>
+                  <h2 className="py-2 text-primary">Coaching Slider</h2>
                   <div className="text-end py-2">
                     <Link
-                      to="/dashboard/popup-slider-image"
+                      to="/dashboard/coaching-slider-image"
                       className="btn btn-primary"
                     >
-                      Add Popup Image
+                      Add Coaching Slider Image
                     </Link>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ const CoachingSlider = () => {
                                   <td>
                                     <div className="">
                                       <Link
-                                        to={`/dashboard/edit-popupslider-image/${data.id}`}
+                                        to={`/dashboard/edit-coachingslider-image/${data.id}`}
                                         className="btn-sm btn-primary m-1 text-decoration-none"
                                       >
                                         <i className="fa fa-edit"></i>

@@ -13,7 +13,7 @@ const PromotionalImages = () => {
 
   const DeleteImage = id => {
       // console.log('Delete', id);
-    axios.post('/api/delete-homeslider-image', {id: id}).then((response) => {
+    axios.post('/api/delete-promotional-image', {id: id}).then((response) => {
         // console.log('Response', response)
         if (response.data.status === 200 ) {
             Swal.fire({

@@ -21,7 +21,7 @@ const EditPromotionalImage = () => {
     const values = Input;
     //   console.log(values);
 
-    axios.post("/api/update-homeslider-image", values).then((response) => {
+    axios.post("/api/update-promotional-image", values).then((response) => {
       // console.log(response)
       if (response.data.status === 201) {
         Swal.fire({
@@ -31,7 +31,7 @@ const EditPromotionalImage = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/dashboard/home-slider");
+        navigate("/dashboard/promotional-images");
       }
     });
   };
@@ -42,7 +42,7 @@ const EditPromotionalImage = () => {
   };
 
   useEffect(() => {
-    axios.get(`/api/home-slider-images/${id}`).then((response) => {
+    axios.get(`/api/promotionalimages/${id}`).then((response) => {
       setInput(response.data.data);
       setLoading(false);
     });

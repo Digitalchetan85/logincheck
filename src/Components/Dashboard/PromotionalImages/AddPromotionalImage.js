@@ -25,7 +25,9 @@ const AddPromotionalImage = () => {
   const submit = (e) => {
     e.preventDefault();
     const values = { coursename, imageurl, alt, link };
-    // console.log(values);
+    console.log(values);
+
+
 
     axios
       .post("/api/add-promotional-image", values)
@@ -75,9 +77,12 @@ const AddPromotionalImage = () => {
                             onChange={(e) => Setcoursename(e.target.value)}
                           >
                             <option>Open this select menu</option>
-                            <option value="One">One</option>
-                            <option value="Two">Two</option>
-                            <option value="Three">Three</option>
+                            <option value="ICP - CAT">ICP - CAT</option>
+                            <option value="ICP - ENT">ICP - ENT</option>
+                            <option value="ICP - PDV">ICP - PDV</option>
+                            <option value="ICP - ACC">ICP - ACC</option>
+                            <option value="ICP - ATF">ICP - ATF</option>
+                            <option value="ICP - ORG">ICP - ORG</option>
                           </Form.Select>
                           <small className="text-danger">
                             {Errors.coursename}

@@ -23,7 +23,7 @@ const AddCoachingSlider = () => {
     // console.log(values);
 
     axios
-      .post("/api/add-homeslider-image", values)
+      .post("/api/add-coaching-slider-image", values)
       .then((res) => {
         // console.log(res.data.validation_errors);
         if (res.data.status === 401) {
@@ -38,7 +38,7 @@ const AddCoachingSlider = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/dashboard/home-slider')
+          navigate('/dashboard/coaching-slider')
         }
       })
       .catch((err) => {

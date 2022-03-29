@@ -80,6 +80,15 @@ import PopSlider from "./Components/Dashboard/PopupSlider/PopSlider";
 import AddPopSlider from "./Components/Dashboard/PopupSlider/AddPopSlider";
 import EditHomeSlider from "./Components/Dashboard/HomeSlider/EditHomeslider";
 import EditPopSlider from "./Components/Dashboard/PopupSlider/EditPopslider";
+import MentoringSlider from "./Components/Dashboard/MentoringSlider/MentoringSlider";
+import EditMentoringSlider from "./Components/Dashboard/MentoringSlider/EditMentoringslider";
+import AddMentoringSlider from "./Components/Dashboard/MentoringSlider/AddMentoringSlider";
+import CoachingSlider from "./Components/Dashboard/CoachingSlider/CoachingSlider";
+import AddCoachingSlider from "./Components/Dashboard/CoachingSlider/AddCoachingSlider";
+import EditCoachingSlider from "./Components/Dashboard/CoachingSlider/EditCoachingslider";
+import CourseSchedule from "./Components/Dashboard/CourseSchedule/CourseSchedule";
+import AddCourseSchedule from "./Components/Dashboard/CourseSchedule/AddCourseSchedule";
+import EditCourseSchedule from "./Components/Dashboard/CourseSchedule/EditCourseSchedule";
 
 function App() {
   return (
@@ -91,7 +100,7 @@ function App() {
           <>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/promotional-images" element={<PromotionalImages />} />
-            <Route path="/dashboard/add-promotion-image" element={<AddPromotionalImage />} />
+            <Route path="/dashboard/add-promotional-image" element={<AddPromotionalImage />} />
             <Route path="/dashboard/edit-promotional-image/:id" element={<EditPromotionalImage />} />
 
             <Route path="/dashboard/home-slider" element={<HomeSlider />} />
@@ -102,9 +111,17 @@ function App() {
             <Route path="/dashboard/popup-slider-image" element={<AddPopSlider />} />
             <Route path="/dashboard/edit-popupslider-image/:id" element={<EditPopSlider />} />
             
-            <Route path="/dashboard/mentoring-slider" element={<PopSlider />} />
-            <Route path="/dashboard/mentoring-slider-image" element={<AddPopSlider />} />
-            <Route path="/dashboard/edit-mentoringslider-image/:id" element={<EditPopSlider />} />
+            <Route path="/dashboard/mentoring-slider" element={<MentoringSlider />} />
+            <Route path="/dashboard/mentoring-slider-image" element={<AddMentoringSlider />} />
+            <Route path="/dashboard/edit-mentoringslider-image/:id" element={<EditMentoringSlider />} />
+
+            <Route path="/dashboard/coaching-slider" element={<CoachingSlider />} />
+            <Route path="/dashboard/coaching-slider-image" element={<AddCoachingSlider />} />
+            <Route path="/dashboard/edit-coachingslider-image/:id" element={<EditCoachingSlider />} />
+            
+            <Route path="/dashboard/course-schedule" element={<CourseSchedule />} />
+            <Route path="/dashboard/add-course-schedule" element={<AddCourseSchedule />} />
+            <Route path="/dashboard/edit-course-schedule/:id" element={<EditCourseSchedule />} />
           </>
 
           <>

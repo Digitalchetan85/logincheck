@@ -23,7 +23,7 @@ const AddMentoringSlider = () => {
     // console.log(values);
 
     axios
-      .post("/api/add-homeslider-image", values)
+      .post("/api/add-mentoring-slider-image", values)
       .then((res) => {
         // console.log(res.data.validation_errors);
         if (res.data.status === 401) {
@@ -38,7 +38,7 @@ const AddMentoringSlider = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/dashboard/home-slider')
+          navigate('/dashboard/mentoring-slider')
         }
       })
       .catch((err) => {

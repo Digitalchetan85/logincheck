@@ -21,7 +21,7 @@ const EditCoachingSlider = () => {
       const values = Input;
     //   console.log(values);
 
-    axios.post('/api/update-popup-image', values).then((response) => {
+    axios.post('/api/update-coaching-slider-image', values).then((response) => {
         // console.log(response)
         if (response.data.status === 201) {
             Swal.fire({
@@ -31,7 +31,7 @@ const EditCoachingSlider = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
-            navigate('/dashboard/popup-slider');
+            navigate('/dashboard/coaching-slider');
         }
     })
   }
@@ -42,7 +42,7 @@ const EditCoachingSlider = () => {
   }
 
   useEffect(() => {
-      axios.get(`/api/popupimages/${id}`).then((response) => {
+      axios.get(`/api/coaching-slider/${id}`).then((response) => {
         setInput(response.data.data);
         setLoading(false);
       })
