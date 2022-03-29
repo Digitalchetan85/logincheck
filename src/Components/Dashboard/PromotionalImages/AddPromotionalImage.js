@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import DashboardFooter from "./Includes/DashboardFooter";
-import DashboardNavabar from "./Includes/DashboardNavabar";
-import Dashboardsidebar from "./Includes/Dashboardsidebar";
-import "./assets/js/scripts";
+import DashboardFooter from "../Includes/DashboardFooter";
+import DashboardNavabar from "../Includes/DashboardNavabar";
+import Dashboardsidebar from "../Includes/Dashboardsidebar";
+import "../assets/js/scripts";
 import {
   Button,
   Col,
@@ -12,8 +12,6 @@ import {
   Form,
 } from "react-bootstrap";
 import axios from "axios";
-import TopMenubar from "../Includes/TopMenubar";
-import Footer from "../Includes/Footer";
 
 const AddPromotionalImage = () => {
 

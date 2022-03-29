@@ -22,7 +22,7 @@ const Dashboardsidebar = () => {
               </div>
               Payment
             </Link>
-            <Link className="nav-link" to="/dashboard/promotion-images">
+            <Link className="nav-link" to="/dashboard/promotional-images">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-home"></i>
               </div>

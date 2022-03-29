@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CustomSlider extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'imageurl', 'alt', 'link'
+    ];
 }

@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://shanthaswebz.com/login",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
@@ -12,7 +12,7 @@
     "formik": "^2.2.9",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.2.1",
+    "react-bootstrap": "^2.2.2",
     "react-cookie-consent": "^7.3.1",
     "react-dom": "^17.0.2",
     "react-owl-carousel2": "^0.3.0",
@@ -21,6 +21,7 @@
     "react-scripts": "5.0.0",
     "recharts": "^2.1.9",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.4.7",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
