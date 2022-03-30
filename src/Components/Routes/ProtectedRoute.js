@@ -6,13 +6,13 @@ const useAuth = () => {
   const admin = localStorage.getItem("admin");
   console.log("user", user || admin)
   console.log(user && admin === "0")
-  return user && admin;
+  return user && admin === "1";
 };
 
 const ProtectedRoute = () => {
   const isAuth = useAuth();
   console.log(isAuth)
-  return isAuth === null ? <Login /> : <Outlet />;
+  return isAuth ? <Outlet /> : <Login />;
 };
 
 export default ProtectedRoute;
