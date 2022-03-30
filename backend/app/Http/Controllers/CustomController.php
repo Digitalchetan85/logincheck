@@ -654,6 +654,24 @@ class CustomController extends Controller
         }
     }
 
+    
+    public function GetCourseSchedule($name) {
+        $data = ScheduleTiming::where('coursename', $name)->get();
+        return $data;
+
+        // if ($data) {
+        //     return response()->json([
+        //         'status' => 200,
+        //         'data' => $data
+        //     ]);
+        // } else {
+        //     return response()->json([
+        //         'status' => 401,
+        //         'message' => 'Sorry Data Not Found in the database'
+        //     ]);
+        // }
+    }
+
     public function DeleteCourseSchedule (Request $req) {
         // return $req->all();
         $data = ScheduleTiming::where('id', $req->id)->delete();

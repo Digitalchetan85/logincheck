@@ -147,16 +147,16 @@ const IcAgileIcpAcc = () => {
   useEffect(() => {
     axios
       .get(
-        "courseschedule/ICP - ACC"
+        "/api/course-schedule-by-coursename/ICP - ACC"
       )
       .then((response) => {
-        // console.log(response.data.data);
-        setSchedule(response.data.data);
+        // console.log(response);
+        setSchedule(response.data);
       })
       .catch((err) => {
         // console.log(err);
       });
-  }, []);
+  }, [Timing]);
 
   return (
     <>
@@ -405,14 +405,14 @@ const IcAgileIcpAcc = () => {
                             name="schedule"
                           >
                             <option value="-- Select --">-- Select --</option>
-                            {Timing.map((item) => (
+                            {Timing ? Timing.map((item) => (
                               <option
                                 key={item.id}
-                                value={item.coursetiming}
+                                value={item.coursetimings}
                               >
-                                {item.coursetiming}
+                                {item.coursetimings}
                               </option>
-                            ))}
+                            )) : null}
                           </Field>
                           <small className="text-danger">
                             <ErrorMessage name="schedule" />

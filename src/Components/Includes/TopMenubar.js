@@ -22,6 +22,7 @@ const TopMenubar = () => {
       if (res.data.status === 200) {
         localStorage.removeItem("auth_token");
         localStorage.removeItem("auth_name");
+        localStorage.removeItem("admin");
         swal("Success", res.data.message, "success");
         navigate("/agility");
       }

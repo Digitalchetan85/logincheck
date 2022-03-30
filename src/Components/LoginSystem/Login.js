@@ -4,6 +4,8 @@ import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -23,6 +25,7 @@ const Login = () => {
           if (res.data.status === 200) {
               localStorage.setItem("auth_token", res.data.token);
               localStorage.setItem("auth_name", res.data.username);
+              localStorage.setItem("admin", res.data.admin);
               swal("Success", res.data.message,"success");
               if (res.data.admin === "1") {
                 navigate('/dashboard')
@@ -44,6 +47,7 @@ const Login = () => {
 
   return (
     <>
+      <TopMenubar />
       <Container>
         <Row className="justify-content-center">
           <Col md={4}>
@@ -109,6 +113,7 @@ const Login = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };

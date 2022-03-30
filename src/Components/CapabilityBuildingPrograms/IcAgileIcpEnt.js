@@ -141,11 +141,11 @@ const IcAgileIcpEnt = () => {
   useEffect(() => {
     axios
       .get(
-        "courseschedule/ICP - ENT"
+        "/api/course-schedule-by-coursename/ICP - ENT"
       )
       .then((response) => {
         // console.log(response.data.data);
-        setSchedule(response.data.data);
+        setSchedule(response.data);
       })
       .catch((err) => {
         // console.log(err);
@@ -377,14 +377,14 @@ const IcAgileIcpEnt = () => {
                             name="schedule"
                           >
                             <option>-- Select --</option>
-                            {Timing.map((option) => (
+                            {Timing ? Timing.map((option) => (
                               <option
                                 key={option.id}
-                                value={option.coursetiming}
+                                value={option.coursetimings}
                               >
-                                {option.coursetiming}
+                                {option.coursetimings}
                               </option>
-                            ))}
+                            )) : null}
                           </Field>
                           <small className="text-danger">
                             <ErrorMessage name="schedule" />

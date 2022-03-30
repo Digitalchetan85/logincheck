@@ -54,6 +54,7 @@ Route::post('delete-coaching-slider-image', [CustomController::class, 'DeleteCoa
 
 Route::get('course-schedule', [CustomController::class, 'CourseSchedule']);
 Route::get('course-schedule/{id}', [CustomController::class, 'EditCourseSchedule']);
+Route::get('course-schedule-by-coursename/{name}', [CustomController::class, 'GetCourseSchedule']);
 Route::post('add-course-schedule', [CustomController::class, 'AddCourseSchedule']);
 Route::post('update-course-schedule', [CustomController::class, 'UpdateCourseSchedule']);
 Route::post('delete-course-schedule', [CustomController::class, 'DeleteCourseSchedule']);

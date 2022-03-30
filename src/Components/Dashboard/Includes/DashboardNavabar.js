@@ -1,9 +1,21 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from '../../Images/dashboard-logo.png';
+import swal from "sweetalert";
+import logo from "../../Images/dashboard-logo.png";
+import axios from "axios";
 
 const DashboardNavabar = () => {
+  const logout = () => {
+    axios.post("/api/logout").then((res) => {
+      if (res.data.status === 200) {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("auth_name");
+        localStorage.removeItem("admin");
+        swal("Success", res.data.message, "success");
+      }
+    });
+  };
   return (
     <div>
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -29,7 +41,11 @@ const DashboardNavabar = () => {
               aria-label="Search for..."
               aria-describedby="btnNavbarSearch"
             />
-            <button className="btn btn-primary" id="btnNavbarSearch" type="button">
+            <button
+              className="btn btn-primary"
+              id="btnNavbarSearch"
+              type="button"
+            >
               <i className="fas fa-search"></i>
             </button>
           </div>
@@ -37,7 +53,7 @@ const DashboardNavabar = () => {
         {/* <!-- Navbar--> */}
         <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
           <li className="nav-item dropdown">
-            <Link
+            {/* <Link
               className="nav-link dropdown-toggle"
               id="navbarDropdown"
               to="#"
@@ -46,8 +62,11 @@ const DashboardNavabar = () => {
               aria-expanded="false"
             >
               <i className="fas fa-user fa-fw"></i>
+            </Link> */}
+            <Link to="/agility" className="btn btn-primary text-white" onClick={logout}>
+              Logout
             </Link>
-            <ul
+            {/* <ul
               className="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdown"
             >
@@ -69,7 +88,7 @@ const DashboardNavabar = () => {
                   Logout
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </li>
         </ul>
       </nav>

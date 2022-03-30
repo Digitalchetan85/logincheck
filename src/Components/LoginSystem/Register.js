@@ -4,6 +4,8 @@ import { Formik, Form, Field } from "formik";
 import axios from "axios";
 // import swal from "sweetalert";
 import { Link, useNavigate } from "react-router-dom";
+import TopMenubar from "../Includes/TopMenubar";
+import Footer from "../Includes/Footer";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -36,6 +38,7 @@ const Register = () => {
 
   return (
     <>
+      <TopMenubar />
       <Container>
         <Row className="justify-content-center">
           <Col md={4}>
@@ -110,6 +113,7 @@ const Register = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };

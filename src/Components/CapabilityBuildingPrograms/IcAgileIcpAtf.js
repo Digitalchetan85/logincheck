@@ -141,16 +141,16 @@ const IcAgileIcpAtf = () => {
   useEffect(() => {
     axios
       .get(
-        "courseschedule/ICP - ATF"
+        "/api/course-schedule-by-coursename/ICP - ATF"
       )
       .then((response) => {
         // console.log(response.data.data);
-        setSchedule(response.data.data);
+        setSchedule(response.data);
       })
       .catch((err) => {
         // console.log(err);
       });
-  }, []);
+  }, [Timing]);
 
   // console.log(Timing);
   return (
@@ -377,14 +377,14 @@ const IcAgileIcpAtf = () => {
                             name="schedule"
                           >
                             <option>-- Select --</option>
-                            {Timing.map((option) => (
+                            {Timing ? Timing.map((option) => (
                               <option
                                 key={option.id}
-                                value={option.coursetiming}
+                                value={option.coursetimings}
                               >
-                                {option.coursetiming}
+                                {option.coursetimings}
                               </option>
-                            ))}
+                            )) : null}
                           </Field>
                           <small className="text-danger">
                             <ErrorMessage name="schedule" />
