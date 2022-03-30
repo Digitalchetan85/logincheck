@@ -6,7 +6,7 @@ import "./assets/js/scripts";
 
 const Dashboard = () => {
   return (
-    <div className="sb-nav-fixed">
+    <div className="sb-nav-fixed py-5">
       <DashboardNavabar />
 
       <div id="layoutSidenav">
@@ -16,7 +16,7 @@ const Dashboard = () => {
 
         <div id="layoutSidenav_content">
           <main>
-            <h1>Welcome</h1>
+            <h1 className="text-primary text-center" >Welcome To Digital Agility Institute Dashboard</h1>
           </main>
 
           <DashboardFooter />

@@ -58,7 +58,7 @@ const HomeSlider = () => {
             <div id="table" className="py-3">
               <Container>
                 <div className="">
-                  <h2 className="py-2 text-primary">Promotional Images</h2>
+                  <h2 className="py-2 text-primary">Home Sliders</h2>
                   <div className="text-end py-2">
                     <Link
                       to="/dashboard/home-slider-image"
