@@ -178,6 +178,9 @@ function App() {
 
           <Route element={<LoginProtectedRoute />}>
             <Route path="/login" element={<Login />}></Route>
+          </Route>
+
+          <Route element={<RegisterProtectedRoute />}>
             <Route path="/register" element={<Register />}></Route>
           </Route>
 

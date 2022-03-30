@@ -85,7 +85,7 @@ const Register = () => {
                           Password
                         </label>
                         <Field
-                          type="text"
+                          type="password"
                           className="form-control"
                           id="password"
                           name="password"
@@ -94,7 +94,10 @@ const Register = () => {
                       </div>
                     </Col>
                   </Row>
-                  {Errors.SuccessMessage ? Errors.SuccessMessage : ""}
+                  
+                  {Errors.SuccessMessage ? <div class="alert alert-success" role="alert">{Errors.SuccessMessage}</div> : ""}
+
+                  
                   <Row className="mb-3">
                     <Col md={12}>
                       <div className="text-center">

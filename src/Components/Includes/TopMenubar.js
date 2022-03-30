@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState, useEffect }from "react";
 import {
   Navbar,
   NavDropdown,
@@ -15,6 +15,14 @@ import Logo from "../Images/logo1.png";
 
 const TopMenubar = () => {
   const navigate = useNavigate();
+
+  const [username, SetUsername] = useState();
+  
+  useEffect(() => {
+    SetUsername(localStorage.getItem("auth_name"))
+  }, [])
+
+
   const logoutSubmit = (e) => {
     e.preventDefault();
 
@@ -34,6 +42,7 @@ const TopMenubar = () => {
     if (localStorage.getItem("auth_token")) {
       AuthButtons = (
         <div className="text-center text-md-end py-1">
+          {username ? <a className="mx-2 btn-sm text-dark text-decoration-none text-capitalize">Hi {username}</a> : ""}
           <Link
             to="/"
             onClick={logoutSubmit}
