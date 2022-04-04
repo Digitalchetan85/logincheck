@@ -15,6 +15,15 @@ const Assessments1 = () => {
       theme: "Roles",
       category: "Cross Functional Team",
     },
+  ];
+  const questions1 = [
+    {
+      id: 1,
+      question:
+        "Roles & responsibilities and their relevant boundaries of each of the team members is clearly defined and understood by the team",
+      theme: "Roles",
+      category: "Cross Functional Team",
+    },
 
     {
       id: 2,
