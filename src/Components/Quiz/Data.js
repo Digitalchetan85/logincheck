@@ -1,7 +1,7 @@
 const data = [
     { 
         question: "What does CSS stand for?",
-        incorrectAnswes: [
+        incorrectAnswers: [
             "Computer Style Sheets",
             "Creative Style Sheets",
             "Colorful Style Sheets",
@@ -11,7 +11,7 @@ const data = [
 
     { 
         question: "Where is an HTML document is the correct place to refer to an external style sheet?",
-        incorrectAnswes: [
+        incorrectAnswers: [
             "In the <body> section",
             "At the end of the document",
             "You can't refer to an external style sheet",
