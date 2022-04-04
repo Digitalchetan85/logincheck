@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import icpLpm from "../Images/capability-building-programs/safe/lpm.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import swal from "sweetalert";
 
 const SafeLpm = () => {
   let history = useNavigate();
@@ -28,27 +29,7 @@ const SafeLpm = () => {
     const Price = 1500;
     const data = values;
 
-    axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone +
-          "&schedule=" +
-          data.schedule
-      )
-      .then(function (response) {
-        // console.log(response);
-        setformStatus(response.data);
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setformStatus(error.data);
-      });
-
-    displayRazorpay(Price, data.name, data.email, data.phone);
+    displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
   const phoneRegExp =
@@ -81,7 +62,7 @@ const SafeLpm = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone) => {
+  const displayRazorpay = async (amount, username, useremail, userphone, schedule) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -92,8 +73,8 @@ const SafeLpm = () => {
     }
 
     const options = {
-      key: "rzp_live_1SmU1PuRbz53st",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -111,20 +92,34 @@ const SafeLpm = () => {
           useremail,
         }
 
-        // // console.log(Values);
+        const paymentdata = {
+          name: username,
+          email: useremail,
+          phone: userphone,
+          amount: amount,
+          paymentid: paymentid,
+          coursename: "ICP - ACC",
+          schedule: schedule,
+        };
 
-        axios.post('https://digitalagilityinstitute.com/Api/Payment/payment.php', Values)
-        .then(function (response) {
-          // // console.log(response);
-          // setformStatus(response.data);
-        })
-        .catch(function (error) {
-          // console.log(error);
-          // setformStatus(error.data);
-        });
-
-        // alert("Success payment Done.");
-        history.push('/success');
+        axios
+          .post("/api/payment", paymentdata)
+          .then(function (response) {
+            axios
+              .post("api/payment-email", paymentdata)
+              .then(function (response) {
+                if (response.status === 200) {
+                  swal(
+                    "Success",
+                    "Thanks for your Registation. We will contact you soon",
+                    "success"
+                  );
+                }
+              });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       },
       prefill: {
         name: username,
@@ -139,7 +134,7 @@ const SafeLpm = () => {
   useEffect(() => {
     axios
       .get(
-        "https://digitalagilityinstitute.com/Api/course-schedule/getschedule.php?coursename=SAFe5 - LPM"
+        "/api/course-schedule-by-coursename/SAFe5 - LPM"
       )
       .then((response) => {
         // // console.log(response.data);
@@ -391,11 +386,19 @@ const SafeLpm = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                        <div className="">
-                          <Button className="btn btn-primary" type="submit">
-                            Checkout
-                          </Button>
-                        </div>
+                      {localStorage.getItem("auth_token") ? (
+                          <div className="">
+                            <Button className="btn btn-primary" type="submit">
+                              Checkout
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="">
+                            <a className="btn btn-primary" href="/login">
+                              Login to Checkout
+                            </a>
+                          </div>
+                        )}
                       </Col>
                     </Row>
                   </Form>

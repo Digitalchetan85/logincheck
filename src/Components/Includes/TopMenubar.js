@@ -15,6 +15,15 @@ import Logo from "../Images/logo1.png";
 
 const TopMenubar = () => {
   const navigate = useNavigate();
+  const [location, SetLocation] = useState();
+
+  const LiveEbook = () => {
+    if (localStorage.getItem("auth_token")) {
+      SetLocation("https://designrr.site/?i=k64h&t=139f64&f=1")
+    } else {
+      SetLocation("/login")
+    }
+  }
 
   const [username, SetUsername] = useState();
   
@@ -95,7 +104,8 @@ const TopMenubar = () => {
               <div className="text-center">
                 <a
                   className="btn-sm btn-primary text-decoration-none text-white"
-                  href="https://designrr.site/?i=k64h&t=139f64&f=1"
+                  href={location}
+                  onClick={LiveEbook}
                   target="_blank"
                 >
                   <i className="fas fa-download"></i> Get live E-Book

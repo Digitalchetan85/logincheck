@@ -81,7 +81,7 @@ class CustomController extends Controller
                 'validation_errors' => $validator->errors(),
             ]);
         } else {
-            PromotionSlider::saveAll([
+            PromotionSlider::create([
                 'coursename' => $req->coursename,
                 'imageurl' => $req->imageurl,
                 'alt' => $req->alt,

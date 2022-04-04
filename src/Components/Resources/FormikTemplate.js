@@ -1,8 +1,9 @@
-import React, {useState } from "react";
-import {Row, Col, Button } from "react-bootstrap";
-import { Form, Field, ErrorMessage, Formik } from 'formik';
-import axios from 'axios';
-import * as Yup from 'yup';
+import React, { useEffect, useState } from "react";
+import { Row, Col, Button } from "react-bootstrap";
+import { Form, Field, ErrorMessage, Formik } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
+import swal from "sweetalert";
 
 const FormikTemplate = (props) => {
   const [formStatus, setformStatus] = useState("");
@@ -16,27 +17,7 @@ const FormikTemplate = (props) => {
 
   const onSubmit = (values) => {
     const Price = props.price;
-    // console.log(Price);
     const data = values;
-    // console.log(data);
-
-    axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone 
-      )
-      .then(function (response) {
-        // console.log(response);
-        setformStatus(response.data);
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setformStatus(error.data);
-      });
 
     displayRazorpay(Price, data.name, data.email, data.phone);
   };
@@ -82,8 +63,8 @@ const FormikTemplate = (props) => {
     }
 
     const options = {
-      key: "rzp_test_YPt7F9CZJqkwGO",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -99,28 +80,42 @@ const FormikTemplate = (props) => {
           paymentid,
           username,
           useremail,
-        }
+        };
 
-        // // console.log(Values);
+        const userdata = {
+          name: username,
+          email: useremail,
+          phone: userphone,
+          paymentid: paymentid,
+          amount:amount
+        };
 
-        axios.post('https://digitalagilityinstitute.com/Api/Payment/payment.php', Values)
-        .then(function (response) {
-          
-          // // console.log(response);
-          // setformStatus(response.data);
-        })
-        .catch(function (error) {
-          // console.log(error);
-          // setformStatus(error.data);
-        });
-
-        // alert(props.link);
-        
-        SetDownload(true)
-
-        localStorage.setItem('download', 'true')
-          
-        
+        axios
+          .post("/api/payment", userdata)
+          .then(function (response) {
+            if (response.status === 200) {
+              axios
+                .post("/api/payment-email", userdata)
+                .then(function (response) {
+                  if (response.status === 200) {
+                    swal(
+                      "Success",
+                      "Thanks for Downloading Reusable Templates",
+                      "success"
+                    );
+                    SetDownload(true);
+                  }
+                })
+                .catch(function (err) {
+                  console.log(err);
+                });
+            } else {
+              swal("Error", "Something went wrong. Please try again", "Errpr");
+            }
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
       },
       prefill: {
         name: username,
@@ -132,6 +127,8 @@ const FormikTemplate = (props) => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+
+  
 
   return (
     <Formik
@@ -206,13 +203,19 @@ const FormikTemplate = (props) => {
         <Row className="mb-3">
           <Col md={12}>
             <div className="">
-              <Button className="btn btn-primary mx-3" type="submit">
-                Checkout
-              </Button>
+              {localStorage.getItem("auth_token") ? (
+                <Button className="btn btn-primary form-control" type="submit">
+                  Checkout
+                </Button>
+              ) : (
+                <a className="btn btn-primary form-control" href="/login">
+                  Login to Download
+                </a>
+              )}
 
-              {Download ? <a className="btn btn-primary mx-3" href={props.hello}>
-                Download
-              </a> : null}
+              {Download ? (
+                <a className="btn btn-primary form-control my-2" href={props.link}>Download</a>
+              ) : null}
             </div>
           </Col>
         </Row>

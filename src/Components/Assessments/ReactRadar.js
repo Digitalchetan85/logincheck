@@ -18,7 +18,7 @@ const ReactRadar = (props) => {
 //     { name: "F", x: 16 },
 //   ];
   return (
-    <RadarChart height={300} width={400} outerRadius="80%" data={props.data}>
+    <RadarChart height={300} width={600} outerRadius="80%" data={props.data}>
       <PolarGrid />
       <PolarAngleAxis dataKey="name" />
       <PolarRadiusAxis />

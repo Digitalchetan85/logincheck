@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import video1 from "../Images/SAFe-Course-Videos/Leading-SAFe.mp4"
-import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4"
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import video1 from "../Images/SAFe-Course-Videos/Leading-SAFe.mp4";
+import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import icpSa from "../Images/capability-building-programs/safe/sa.png";
 import { useNavigate } from "react-router-dom";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import swal from "sweetalert";
 
 const SafeFlipbook = () => {
   let history = useNavigate();
@@ -21,34 +22,14 @@ const SafeFlipbook = () => {
     name: "",
     email: "",
     phone: "",
-    schedule:"",
+    schedule: "",
   };
 
   const onSubmit = (values) => {
     const Price = 675;
     const data = values;
 
-    axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone +
-          "&schedule=" +
-          data.schedule
-      )
-      .then(function (response) {
-        // console.log(response);
-        setformStatus(response.data);
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setformStatus(error.data);
-      });
-
-    displayRazorpay(Price, data.name, data.email, data.phone);
+    displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
   const phoneRegExp =
@@ -81,7 +62,13 @@ const SafeFlipbook = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone) => {
+  const displayRazorpay = async (
+    amount,
+    username,
+    useremail,
+    userphone,
+    schedule
+  ) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -92,8 +79,8 @@ const SafeFlipbook = () => {
     }
 
     const options = {
-      key: "rzp_live_1SmU1PuRbz53st",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -109,22 +96,35 @@ const SafeFlipbook = () => {
           paymentid,
           username,
           useremail,
-        }
+        };
+        const paymentdata = {
+          name: username,
+          email: useremail,
+          phone: userphone,
+          amount: amount,
+          paymentid: paymentid,
+          coursename: "ICP - ACC",
+          schedule: schedule,
+        };
 
-        // // console.log(Values);
-
-        axios.post('https://digitalagilityinstitute.com/Api/Payment/payment.php', Values)
-        .then(function (response) {
-          // // console.log(response);
-          // setformStatus(response.data);
-        })
-        .catch(function (error) {
-          // console.log(error);
-          // setformStatus(error.data);
-        });
-
-        // alert("Success payment Done.");
-        history.push('/success');
+        axios
+          .post("/api/payment", paymentdata)
+          .then(function (response) {
+            axios
+              .post("api/payment-email", paymentdata)
+              .then(function (response) {
+                if (response.status === 200) {
+                  swal(
+                    "Success",
+                    "Thanks for your Registation. We will contact you soon",
+                    "success"
+                  );
+                }
+              });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       },
       prefill: {
         name: username,
@@ -138,9 +138,7 @@ const SafeFlipbook = () => {
   };
   useEffect(() => {
     axios
-      .get(
-        "https://digitalagilityinstitute.com/Api/course-schedule/getschedule.php?coursename=SAFe5 - SA"
-      )
+      .get("/api/course-schedule-by-coursename/SAFe5 - SA")
       .then((response) => {
         // // console.log(response.data);
         setSchedule(response.data);
@@ -151,7 +149,7 @@ const SafeFlipbook = () => {
   }, []);
   return (
     <>
-    <TopMenubar />
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -196,8 +194,20 @@ const SafeFlipbook = () => {
                   <h2 className="text-primary py-3 ">
                     About This Certification
                   </h2>
-                  <p className="text-align-justify">Leading SAFe® offers you an introduction to the foundations of SAFe, and provides the principles and practices to drive your Lean-Agile transformation with confidence. The course also offers the guidance and tools you need to lead effectively in remote environments with distributed teams.</p>
-                  <p>Take a Leading SAFe course to discover how companies can build business agility, and how to make SAFe work inside your organization. You’ll learn what makes companies more customer-centric and how to run key SAFe alignment and planning events, like PI planning.</p>
+                  <p className="text-align-justify">
+                    Leading SAFe® offers you an introduction to the foundations
+                    of SAFe, and provides the principles and practices to drive
+                    your Lean-Agile transformation with confidence. The course
+                    also offers the guidance and tools you need to lead
+                    effectively in remote environments with distributed teams.
+                  </p>
+                  <p>
+                    Take a Leading SAFe course to discover how companies can
+                    build business agility, and how to make SAFe work inside
+                    your organization. You’ll learn what makes companies more
+                    customer-centric and how to run key SAFe alignment and
+                    planning events, like PI planning.
+                  </p>
                 </Col>
               </Row>
               <Row className="py-2">
@@ -207,8 +217,14 @@ const SafeFlipbook = () => {
                   </h4>
                   <ul>
                     <li>How to realize the benefits of SAFe.</li>
-                    <li>How to establish Team and Technical Agility and organize around value.</li>
-                    <li>How to participate successfully in critical SAFe events, such as PI Planning</li>
+                    <li>
+                      How to establish Team and Technical Agility and organize
+                      around value.
+                    </li>
+                    <li>
+                      How to participate successfully in critical SAFe events,
+                      such as PI Planning
+                    </li>
                     <li>How to adopt a customer-centric mindset.</li>
                   </ul>
                 </Col>
@@ -216,15 +232,22 @@ const SafeFlipbook = () => {
                   <h4 className="text-primary py-2">What you will receive</h4>
                   <ul>
                     <li>Course materials</li>
-                    <li>Access to SAFe® Collaborate, a visual online workspace</li>
+                    <li>
+                      Access to SAFe® Collaborate, a visual online workspace
+                    </li>
                     <li>One-year membership to the SAFe® Community Platform</li>
                     <li>SAFe LPM certification exam</li>
-                    <li>Access to the optional Getting Started with LPM Workshop</li>
+                    <li>
+                      Access to the optional Getting Started with LPM Workshop
+                    </li>
                     <li>Connect to Digital Agility Institute Community</li>
                   </ul>
                 </Col>
-                <p>Our training is delivered by SAFe Program Consultants with diverse experience of transforming teams & organizations implementing SAFe successfully.</p>
-                
+                <p>
+                  Our training is delivered by SAFe Program Consultants with
+                  diverse experience of transforming teams & organizations
+                  implementing SAFe successfully.
+                </p>
               </Row>
 
               <Row>
@@ -232,16 +255,18 @@ const SafeFlipbook = () => {
                   <h4 className="text-primary py-2">Who Should attend :</h4>
                   <ul>
                     <li>Agile Leaders or aspiring Leaders </li>
-                    <li>Agile Coaches and aspiring coaches  </li>
+                    <li>Agile Coaches and aspiring coaches </li>
                     <li>Scrum Masters, Agile Project Managers </li>
                     <li>Product Owners, Business Analysts</li>
-                    <li>and anyone with the desire to explore the power of SAFe.</li>
+                    <li>
+                      and anyone with the desire to explore the power of SAFe.
+                    </li>
                   </ul>
                 </Col>
                 <Col md={6} className="pb-3 pt-md-2 pb-md-2">
                   <h4 className="text-primary py-2">Prerequisites:</h4>
                   <ul>
-                   <li>An Intermediate level course</li>
+                    <li>An Intermediate level course</li>
                     <li>
                       There are no conditional pre-requisites for the training
                       program
@@ -281,7 +306,7 @@ const SafeFlipbook = () => {
                   <source src={video1} type="video/mp4"></source>
                 </video>
               </div>
-              
+
               <div className="shadow p-3">
                 <h3 className="text-primary">Schedule Your Course</h3>
                 <p>
@@ -290,10 +315,9 @@ const SafeFlipbook = () => {
                 <p>
                   Course Price:
                   <strong> ${coursePrice}</strong>
-                </p>                
+                </p>
                 <p>
-                  Course Price: {" "}
-                  <strong> (INR 50999/-)</strong>
+                  Course Price: <strong> (INR 50999/-)</strong>
                 </p>
                 <Formik
                   initialValues={initialValues}
@@ -395,11 +419,19 @@ const SafeFlipbook = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                        <div className="">
-                          <Button className="btn btn-primary" type="submit">
-                            Checkout
-                          </Button>
-                        </div>
+                        {localStorage.getItem("auth_token") ? (
+                          <div className="">
+                            <Button className="btn btn-primary" type="submit">
+                              Checkout
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="">
+                            <a className="btn btn-primary" href="/login">
+                              Login to Checkout
+                            </a>
+                          </div>
+                        )}
                       </Col>
                     </Row>
                   </Form>

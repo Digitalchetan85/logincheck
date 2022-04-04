@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { Form, Field, ErrorMessage, Formik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const MentoringFormik = (props) => {
   let navigate = useNavigate();
   const [formStatus, setformStatus] = useState("");
+  const [Timing, setSchedule] = useState("");
 
   const initialValues = {
     name: "",
@@ -17,29 +19,9 @@ const MentoringFormik = (props) => {
 
   const onSubmit = (values) => {
     const Price = props.price;
-    // console.log(Price);
     const data = values;
-    // console.log(data);
 
-    axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone
-      )
-      .then(function (response) {
-        // console.log(response);
-        setformStatus(response.data);
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setformStatus(error.data);
-      });
-
-    displayRazorpay(Price, data.name, data.email, data.phone);
+    displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
   const phoneRegExp =
@@ -72,7 +54,7 @@ const MentoringFormik = (props) => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone) => {
+  const displayRazorpay = async (amount, username, useremail, userphone, schedule) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -83,8 +65,8 @@ const MentoringFormik = (props) => {
     }
 
     const options = {
-      key: "rzp_test_YPt7F9CZJqkwGO",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -102,25 +84,34 @@ const MentoringFormik = (props) => {
           useremail,
         };
 
-        // // console.log(Values);
+        const paymentdata = {
+          name: username,
+          email: useremail,
+          phone: userphone,
+          amount: amount,
+          paymentid: paymentid,
+          coursename: props.title,
+          schedule: schedule,
+        };
 
         axios
-          .post(
-            "https://digitalagilityinstitute.com/Api/Payment/payment.php",
-            Values
-          )
+          .post("/api/payment", paymentdata)
           .then(function (response) {
-            // // console.log(response);
-            // setformStatus(response.data);
+            axios
+              .post("api/payment-email", paymentdata)
+              .then(function (response) {
+                if (response.status === 200) {
+                  swal(
+                    "Success",
+                    "Thanks for your Registation. We will contact you soon",
+                    "success"
+                  );
+                }
+              });
           })
           .catch(function (error) {
-            // console.log(error);
-            // setformStatus(error.data);
+            console.log(error);
           });
-
-        // alert(props.link);
-
-        navigate("/");
       },
       prefill: {
         name: username,
@@ -132,6 +123,18 @@ const MentoringFormik = (props) => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+
+  useEffect(() => {
+    axios
+      .get("/api/course-schedule-by-coursename/Excecutive - Coaching")
+      .then((response) => {
+        // console.log(response);
+        setSchedule(response.data);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+  }, []);
 
   return (
     <Formik
@@ -196,6 +199,33 @@ const MentoringFormik = (props) => {
         </Row>
         <Row className="mb-3">
           <Col md={12}>
+            <div className="mb-3">
+              <label htmlFor="channel" className="form-label">
+                Schedule
+              </label>
+              <Field
+                as="select"
+                className="form-control"
+                id="schedule"
+                name="schedule"
+              >
+                <option value="-- Select --">-- Select --</option>
+                {Timing
+                  ? Timing.map((item) => (
+                      <option key={item.id} value={item.coursetimings}>
+                        {item.coursetimings}
+                      </option>
+                    ))
+                  : null}
+              </Field>
+              <small className="text-danger">
+                <ErrorMessage name="schedule" />
+              </small>
+            </div>
+          </Col>
+        </Row>
+        <Row className="mb-3">
+          <Col md={12}>
             {formStatus ? (
               <div className="alert alert-success p-3 text-center">
                 {formStatus}
@@ -205,11 +235,19 @@ const MentoringFormik = (props) => {
         </Row>
         <Row className="mb-3">
           <Col md={12}>
-            <div className="">
-              <Button className="btn btn-primary mx-3" type="submit">
-                Checkout
-              </Button>
-            </div>
+            {localStorage.getItem("auth_token") ? (
+              <div className="">
+                <Button className="btn btn-primary form-control" type="submit">
+                  Checkout
+                </Button>
+              </div>
+            ) : (
+              <div className="">
+                <a className="btn btn-primary form-control" href="/login">
+                  Login to Checkout
+                </a>
+              </div>
+            )}
           </Col>
         </Row>
       </Form>

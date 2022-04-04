@@ -16,14 +16,14 @@ const MentoringModel = (props) => {
         </Button>
       </div>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton className="border-0">
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton className="border-0 bg-primary text-white">
           <Modal.Title className="mx-auto">
             {props.title}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <MentoringFormik price={props.price} hello={props.hello} />
+          <MentoringFormik price={props.price} title={props.title} />
         </Modal.Body>
       </Modal>
     </>

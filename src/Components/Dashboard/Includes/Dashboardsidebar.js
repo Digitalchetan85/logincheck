@@ -61,8 +61,9 @@ const Dashboardsidebar = () => {
           </div>
         </div>
         <div className="sb-sidenav-footer">
-          <div className="small">Logged in as:</div>
-          Start Bootstrap
+          <Link className="nav-link btn btn-primary text-white" to="/dashboard/course-schedule">
+              Logout
+            </Link>
         </div>
       </nav>
     </div>

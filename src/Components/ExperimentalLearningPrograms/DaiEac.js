@@ -90,7 +90,7 @@ const DaiEac = () => {
     }
 
     const options = {
-      key: "rzp_test_YPt7F9CZJqkwGO",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
       currency: "INR",
       amount: amount * 100,
       contact: userphone,

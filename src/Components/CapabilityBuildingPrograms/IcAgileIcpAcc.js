@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Image,Col, Container, Row} from "react-bootstrap";
+import { Image, Col, Container, Row } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import video1 from "../Images/videos/ICP-ACC.mp4";
-import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4"
+import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -11,6 +11,7 @@ import icpAcc from "../Images/capability-building-programs/icp-acc.png";
 import agile from "../Images/agile-visa.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import swal from "sweetalert";
 
 const IcAgileIcpAcc = () => {
   let history = useNavigate();
@@ -29,29 +30,8 @@ const IcAgileIcpAcc = () => {
   const onSubmit = (values) => {
     const Price = 45256;
     const data = values;
-    // console.log(data);
 
-    axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone +
-          "&schedule=" +
-          data.schedule
-      )
-      .then(function (response) {
-        // console.log(response);
-        setformStatus(response.data);
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setformStatus(error.data);
-      });
-
-    displayRazorpay(Price, data.name, data.email, data.phone);
+    displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
   const phoneRegExp =
@@ -84,7 +64,13 @@ const IcAgileIcpAcc = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone) => {
+  const displayRazorpay = async (
+    amount,
+    username,
+    useremail,
+    userphone,
+    schedule
+  ) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -95,8 +81,8 @@ const IcAgileIcpAcc = () => {
     }
 
     const options = {
-      key: "rzp_live_1SmU1PuRbz53st",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -112,26 +98,36 @@ const IcAgileIcpAcc = () => {
           paymentid,
           username,
           useremail,
-        }
+        };
 
-        // // console.log(Values);
+        const paymentdata = {
+          name: username,
+          email: useremail,
+          phone: userphone,
+          amount: amount,
+          paymentid: paymentid,
+          coursename: "ICP - ACC",
+          schedule: schedule,
+        };
 
-        axios.post('https://digitalagilityinstitute.com/Api/Payment/payment.php', Values)
-        .then(function (response) {
-          
-          // // console.log(response);
-          // setformStatus(response.data);
-        })
-        .catch(function (error) {
-          // console.log(error);
-          // setformStatus(error.data);
-        });
-
-        // alert("Success payment Done.");
-        
-
-          history.push('/success');
-        
+        axios
+          .post("/api/payment", paymentdata)
+          .then(function (response) {
+            axios
+              .post("api/payment-email", paymentdata)
+              .then(function (response) {
+                if (response.status === 200) {
+                  swal(
+                    "Success",
+                    "Thanks for your Registation. We will contact you soon",
+                    "success"
+                  );
+                }
+              });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       },
       prefill: {
         name: username,
@@ -146,9 +142,7 @@ const IcAgileIcpAcc = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "/api/course-schedule-by-coursename/ICP - ACC"
-      )
+      .get("/api/course-schedule-by-coursename/ICP - ACC")
       .then((response) => {
         // console.log(response);
         setSchedule(response.data);
@@ -156,11 +150,11 @@ const IcAgileIcpAcc = () => {
       .catch((err) => {
         // console.log(err);
       });
-  }, [Timing]);
+  }, []);
 
   return (
     <>
-    <TopMenubar />
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -201,7 +195,7 @@ const IcAgileIcpAcc = () => {
                 <Col md={3} className="align-self-center">
                   <Image src={icpAcc} alt="" className="img-fluid" />
                   <h5 className="text-center py-1">In collaboration with</h5>
-                    <Image src={agile} alt="" className="img-fluid" />
+                  <Image src={agile} alt="" className="img-fluid" />
                 </Col>
                 <Col md={9} className="">
                   <h2 className="text-primary py-3 ">
@@ -405,14 +399,16 @@ const IcAgileIcpAcc = () => {
                             name="schedule"
                           >
                             <option value="-- Select --">-- Select --</option>
-                            {Timing ? Timing.map((item) => (
-                              <option
-                                key={item.id}
-                                value={item.coursetimings}
-                              >
-                                {item.coursetimings}
-                              </option>
-                            )) : null}
+                            {Timing
+                              ? Timing.map((item) => (
+                                  <option
+                                    key={item.id}
+                                    value={item.coursetimings}
+                                  >
+                                    {item.coursetimings}
+                                  </option>
+                                ))
+                              : null}
                           </Field>
                           <small className="text-danger">
                             <ErrorMessage name="schedule" />
@@ -431,11 +427,19 @@ const IcAgileIcpAcc = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                        <div className="">
-                          <Button className="btn btn-primary" type="submit">
-                            Checkout
-                          </Button>
-                        </div>
+                        {localStorage.getItem("auth_token") ? (
+                          <div className="">
+                            <Button className="btn btn-primary" type="submit">
+                              Checkout
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="">
+                            <a className="btn btn-primary" href="/login">
+                              Login to Checkout
+                            </a>
+                          </div>
+                        )}
                       </Col>
                     </Row>
                   </Form>

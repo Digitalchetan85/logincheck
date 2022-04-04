@@ -92,6 +92,7 @@ import EditCourseSchedule from "./Components/Dashboard/CourseSchedule/EditCourse
 import ProtectedRoute from "./Components/Routes/ProtectedRoute";
 import LoginProtectedRoute from "./Components/Routes/LoginProtectedRoute";
 import RegisterProtectedRoute from "./Components/Routes/RegisterProtectedRoute";
+import Payment from "./Components/Dashboard/Payment/Payment";
 
 function App() {
   // console.log("routes", routes);
@@ -100,6 +101,7 @@ function App() {
       <Router>
         {/* <TopMenubar /> */}
         {/* <HomeModal /> */}
+
         <Routes>
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
@@ -174,6 +176,8 @@ function App() {
               path="/dashboard/edit-course-schedule/:id"
               element={<EditCourseSchedule />}
             />
+
+            <Route path="/dashboard/payment" element={<Payment></Payment>} />
           </Route>
 
           <Route element={<LoginProtectedRoute />}>

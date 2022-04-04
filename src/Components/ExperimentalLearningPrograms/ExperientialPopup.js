@@ -9,10 +9,12 @@ import Footer from "../Includes/Footer";
 const ExperientialPopup = (props) => {
   const [Timing, setSchedule] = useState([]);
 
+  // alert(props.coursename);
+
   useEffect(() => {
     axios
       .get(
-        "https://digitalagilityinstitute.com/Api/course-schedule/getschedule.php?coursename={props.coursename}"
+        "/api/course-schedule-by-coursename/"+props.coursename
       )
       .then((response) => {
         // console.log(response.data);

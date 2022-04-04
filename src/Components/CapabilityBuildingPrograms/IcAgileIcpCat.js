@@ -11,6 +11,7 @@ import icpCat from "../Images/capability-building-programs/icp-cat.png";
 import agile from "../Images/agile-visa.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import swal from "sweetalert";
 
 const IcAgileIcpCat = () => {
   let history = useNavigate();
@@ -29,29 +30,8 @@ const IcAgileIcpCat = () => {
   const onSubmit = (values) => {
     const Price = 679;
     const data = values;
-    // console.log(data);
 
-    axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone +
-          "&schedule=" +
-          data.schedule
-      )
-      .then(function (response) {
-        // console.log(response);
-        setformStatus(response.data);
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setformStatus(error.data);
-      });
-
-    displayRazorpay(Price, data.name, data.email, data.phone);
+    displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
   const phoneRegExp =
@@ -84,7 +64,7 @@ const IcAgileIcpCat = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone) => {
+  const displayRazorpay = async (amount, username, useremail, userphone, schedule) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -95,8 +75,8 @@ const IcAgileIcpCat = () => {
     }
 
     const options = {
-      key: "rzp_live_1SmU1PuRbz53st",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -114,24 +94,34 @@ const IcAgileIcpCat = () => {
           useremail,
         };
 
-        // // console.log(Values);
+        const paymentdata = {
+          name: username,
+          email: useremail,
+          phone: userphone,
+          amount: amount,
+          paymentid: paymentid,
+          coursename: "ICP - CAT",
+          schedule: schedule,
+        };
 
         axios
-          .post(
-            "https://digitalagilityinstitute.com/Api/Payment/payment.php",
-            Values
-          )
+          .post("/api/payment", paymentdata)
           .then(function (response) {
-            // // console.log(response);
-            // setformStatus(response.data);
+            axios
+              .post("api/payment-email", paymentdata)
+              .then(function (response) {
+                if (response.status === 200) {
+                  swal(
+                    "Success",
+                    "Thanks for your Registation. We will contact you soon",
+                    "success"
+                  );
+                }
+              });
           })
           .catch(function (error) {
-            // console.log(error);
-            // setformStatus(error.data);
+            console.log(error);
           });
-
-        // alert("Success payment Done.");
-        history.push("/success");
       },
       prefill: {
         name: username,
@@ -436,11 +426,15 @@ const IcAgileIcpCat = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                        <div className="">
+                      {localStorage.getItem('auth_token') ? <div className="">
                           <Button className="btn btn-primary" type="submit">
                             Checkout
                           </Button>
-                        </div>
+                        </div> : <div className="">
+                          <a className="btn btn-primary" href="/login">
+                            Login to Checkout
+                          </a>
+                        </div>}
                       </Col>
                     </Row>
                   </Form>

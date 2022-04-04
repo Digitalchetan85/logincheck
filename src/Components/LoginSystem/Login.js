@@ -30,7 +30,7 @@ const Login = () => {
               if (res.data.admin === "1") {
                 navigate('/dashboard')
               } else {
-                navigate('/agility')
+                navigate(-1)
               }
           } else if (res.data.status === 401) {
             SetErrors({ ...Errors, ErrorMessage: res.data.message });

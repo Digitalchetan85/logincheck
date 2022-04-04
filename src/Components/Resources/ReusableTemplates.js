@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import ToolkitImage from "../Images/workbooks/agile-coaching-toolkit.png";
 import Footer from "../Includes/Footer";
@@ -6,6 +7,17 @@ import TopMenubar from "../Includes/TopMenubar";
 import Workbook199Model from "./Workbook199Model";
 
 const ReusableTemplates = () => {
+  const [Download, SetDownload] = useState(false);
+  useEffect(() => {
+    axios.get("/api/payment").then(function (response) {
+      console.log(response);
+      if (response.data.amount === "19" && response.data.paymentid === "") {
+        SetDownload(false);
+      } else {
+        SetDownload(true);
+      }
+    });
+  });
   return (
     <div>
       <TopMenubar />
@@ -85,7 +97,7 @@ const ReusableTemplates = () => {
               </div>
 
               <div className="">
-                  <Workbook199Model title="Reusable Templates" price="19" hello="https://google.com"/>
+                  <Workbook199Model title="Reusable Templates" price="19" link="https://google.com"/>
               </div>
             </Col>
           </Row>

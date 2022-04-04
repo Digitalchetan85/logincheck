@@ -13,7 +13,7 @@ const PayPal = () => {
                         { 
                             description: "Cool Looking Tablet",
                             amount: {
-                                currency_code: "USD",
+                                currency_code: "INR",
                                 value: 650.00
                             }
                         }

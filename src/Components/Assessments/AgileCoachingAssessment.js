@@ -480,7 +480,7 @@ const AgileCoachingAssessment = () => {
         {showScore ? (
           <Container>
             <Row className="justify-content-center mt-5 mb-5">
-              <Col md={8}>
+              <Col md={12}>
                 <div className="score-section p-5 bg-light shadow text-center text-primary fw-bold">
                   {Session} {SessionER}you scored {Score} out of{" "}
                   {questions.length}{" "}
@@ -490,11 +490,11 @@ const AgileCoachingAssessment = () => {
               </Col>
             </Row>
             <Row className="justify-content-center">
-              <Col md={4}>
-                <ReactRadar data={graphDataTheme} />
+              <Col md={6}>
+                <div className="text-center"><ReactRadar data={graphDataTheme} /></div>
               </Col>
-              <Col md={4}>
-                <ReactRadar data={graphData} />
+              <Col md={6}>
+                <div className="text-center"><ReactRadar data={graphData} /></div>
               </Col>
             </Row>
           </Container>

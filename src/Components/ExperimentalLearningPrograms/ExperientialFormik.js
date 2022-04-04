@@ -3,9 +3,11 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Form, Field, ErrorMessage, Formik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const ExperientialFormik = (props) => {
   const [formStatus, setformStatus] = useState("");
+  const navigate = useNavigate();
 //   const [Download, SetDownload] = useState(false);
 
   const initialValues = {
@@ -16,21 +18,14 @@ const ExperientialFormik = (props) => {
 
   const onSubmit = (values) => {
     const Price = props.price;
-    // console.log(Price);
-    const data = values;
-    // console.log(data);
+    console.log(values);
 
     axios
-      .get(
-        "https://digitalagilityinstitute.com/email-payment-form.php?sendto=" +
-          data.email +
-          "&name=" +
-          data.name +
-          "&phone=" +
-          data.phone
+      .post(
+        "/api/email", values
       )
       .then(function (response) {
-        // console.log(response);
+        console.log(response);
         setformStatus(response.data);
       })
       .catch(function (error) {
@@ -38,7 +33,12 @@ const ExperientialFormik = (props) => {
         setformStatus(error.data);
       });
 
-    displayRazorpay(Price, data.name, data.email, data.phone);
+    if (localStorage.getItem("auth_token")) 
+    {
+      displayRazorpay(Price, values.name, values.email, values.phone);
+    } else {
+      navigate('/login')
+    }
   };
 
   const phoneRegExp =
@@ -82,8 +82,8 @@ const ExperientialFormik = (props) => {
     }
 
     const options = {
-      key: "rzp_test_YPt7F9CZJqkwGO",
-      currency: "USD",
+      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      currency: "INR",
       amount: amount * 100,
       contact: userphone,
       email: useremail,
@@ -91,31 +91,42 @@ const ExperientialFormik = (props) => {
       description: "Payment for Course",
 
       handler: function (response) {
-        // alert(response.razorpay_payment_id);
-        // // console.log(response)
+        // alert(response);
+        // console.log(response)
         // // console.log(username)
         const paymentid = response.razorpay_payment_id;
         const Values = {
           paymentid,
-          username,
-          useremail,
+          name: username,
+          email: useremail,
+          amount
         };
 
-        // // console.log(Values);
+        // console.log(Values);
 
         axios
           .post(
-            "https://digitalagilityinstitute.com/Api/Payment/payment.php",
+            "/api/payment",
             Values
           )
           .then(function (response) {
-            // // console.log(response);
+            console.log(response);
             // setformStatus(response.data);
           })
           .catch(function (error) {
             // console.log(error);
             // setformStatus(error.data);
           });
+
+        const email = {
+          name: username,
+          email: useremail,
+          phone: userphone
+        } 
+
+        axios.get('/api/email', email).then(function (response) {
+          console.log(response);
+        });
 
         // alert(props.link);
 
@@ -210,8 +221,8 @@ const ExperientialFormik = (props) => {
               >
                 <option>-- Select --</option>
                 {props.Timing.map((option) => (
-                  <option key={option.id} value={option.coursetiming}>
-                    {option.coursetiming}
+                  <option key={option.id} value={option.coursetimings}>
+                    {option.coursetimings}
                   </option>
                 ))}
               </Field>

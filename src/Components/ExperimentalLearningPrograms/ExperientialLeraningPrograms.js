@@ -99,7 +99,7 @@ const ExperientialLearningPrograms = () => {
                   title="DAI - EAC"
                   price="4000"
                   hello="https://google.com"
-                  coursename="DAI - EAC"
+                  coursename="ICP - PDV"
                 />
               </div>
             </Col>
