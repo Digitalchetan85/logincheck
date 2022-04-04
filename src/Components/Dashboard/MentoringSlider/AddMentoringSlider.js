@@ -64,7 +64,7 @@ const AddMentoringSlider = () => {
                 <Col md={12}>
                   <Card>
                     <Card.Header className="text-center bg-primary text-white">
-                      Add New Home Slider Image
+                      Add Mentoring Slider Image
                     </Card.Header>
                     <Card.Body>
                       <Form onSubmit={submit}>

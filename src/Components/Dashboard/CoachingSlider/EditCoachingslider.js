@@ -66,7 +66,7 @@ if(loading) {
             <div id="table" className="py-3">
               <Container>
                 <div className="">
-                  <h2 className="py-2 text-primary">Popup Images</h2>
+                  <h2 className="py-2 text-primary">Coaching Slider</h2>
                 </div>
                 <Row className="justify-content-center">
                   <Col md={10}>

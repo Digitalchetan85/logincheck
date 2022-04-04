@@ -61,7 +61,7 @@ const CourseSchedule = () => {
                   <h2 className="py-2 text-primary">Course Timing</h2>
                   <div className="text-end py-2">
                     <Link
-                      to="/dashboard/course-schedule"
+                      to="/dashboard/add-course-schedule"
                       className="btn btn-primary"
                     >
                       Add Course Schedule

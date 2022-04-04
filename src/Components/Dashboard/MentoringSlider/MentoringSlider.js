@@ -58,7 +58,7 @@ const MentoringSlider = () => {
             <div id="table" className="py-3">
               <Container>
                 <div className="">
-                  <h2 className="py-2 text-primary">Pop Images</h2>
+                  <h2 className="py-2 text-primary">Mentoring Images</h2>
                   <div className="text-end py-2">
                     <Link
                       to="/dashboard/mentoring-slider-image"
