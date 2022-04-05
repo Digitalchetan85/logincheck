@@ -15,15 +15,6 @@ const Assessments1 = () => {
       theme: "Roles",
       category: "Cross Functional Team",
     },
-  ];
-  const questions1 = [
-    {
-      id: 1,
-      question:
-        "Roles & responsibilities and their relevant boundaries of each of the team members is clearly defined and understood by the team",
-      theme: "Roles",
-      category: "Cross Functional Team",
-    },
 
     {
       id: 2,
@@ -55,6 +46,429 @@ const Assessments1 = () => {
         "Team members are  open to criticism and accept negative feedback looking at it as a means to improve their skills & personality to be more effective",
       theme: "Team Culture",
       category: "Ownership",
+    },
+  ];
+
+  const questions1 = [
+    {
+      id: 1,
+      question:
+        "Roles & responsibilities and their relevant boundaries of each of the team members is clearly defined and understood by the team",
+      Themes: "Roles",
+      Category: "Cross Functional Team",
+    },
+    {
+      id: 2,
+      question:
+        "A business sponsor has been identified & engaged for the transformation",
+      Themes: "Roles",
+      Category: "Product Management",
+    },
+    {
+      id: 3,
+      question:
+        "A Product Manager is identified and engaged for the transformation",
+      Themes: "Roles",
+      Category: "Product Management",
+    },
+    {
+      id: 4,
+      question:
+        "A Product Owner is identified and engaged for the transformation",
+      Themes: "Roles",
+      Category: "Product Management",
+    },
+    {
+      id: 5,
+      question:
+        "Operations team responsible has been identified and engaged in the transformation",
+      Themes: "Roles",
+      Category: "Collaboration",
+    },
+    {
+      id: 6,
+      question:
+        "An Agile Master has been identified within the team and on-boarded for transformation",
+      Themes: "Roles",
+      Category: "Cross Functional Team",
+    },
+    {
+      id: 7,
+      question:
+        "Testers along with Dev and BA, are now part of the Team, and testing is no longer a separate phase. ",
+      Themes: "Roles",
+      Category: "Cross Functional Team",
+    },
+    {
+      id: 8,
+      question:
+        "Team understands why the chosen framework is best for the team",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 9,
+      question:
+        "Team understands importance & value of all the ceremonies that are part of the framework where they need to participate",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 10,
+      question:
+        "Team uses visual boards to track the progress of their activities",
+      Themes: "Practices",
+      Category: "Transparency",
+    },
+    {
+      id: 11,
+      question:
+        "Team sets clear objectives and constantly reflects to understand where they are and what they need to improve",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 12,
+      question:
+        "Team has the knowledge of all environments and deployments are fully automated & actionable by any member of the team",
+      Themes: "Practices",
+      Category: "Autonomy",
+    },
+    {
+      id: 13,
+      question:
+        "The team has Version control process defined and implemented through a CI/CD tool",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 14,
+      question:
+        "Team has a knowledge management repository that is shared and maintained by all",
+      Themes: "Practices",
+      Category: "Transparency",
+    },
+    {
+      id: 15,
+      question:
+        "Product Owner has good understanding of Backlog Management, User Story writing etc",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 16,
+      question:
+        "Product Owner is able to allocate enough time for the team for interaction & showcase",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 17,
+      question:
+        "Product Management team is able to clearly articulate the value stream and how the team deliverables contribute to it",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 18,
+      question:
+        "Product Management Team is able to provide clear vision and product roadmap for the team to understand and also how it aligns with overall organizational vision /objectives",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 19,
+      question:
+        "Product Management team is funding value streams and are able to dynamically manage the budget realignment based on Organizational / Product priorities",
+      Themes: "Practices",
+      Category: "Governance",
+    },
+    {
+      id: 20,
+      question:
+        "Team is empowered to realign / restructure based on the Organizational / Product priorities",
+      Themes: "Practices",
+      Category: "Autonomy",
+    },
+    {
+      id: 21,
+      question:
+        "Team uses TDD / BDD practices as part of their development cycle",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 22,
+      question:
+        "There is a backlog of work defined & prioritized by Product Owner",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 23,
+      question:
+        "There is shared Product vision, and Business or its representatives (MOS/ISP)  and IT talk about product outcomes rather than project.  ",
+      Themes: "Practices",
+      Category: "Collaboration",
+    },
+    {
+      id: 24,
+      question:
+        "Business value is defined, tracked and displayed, commonly between IT and Business. ",
+      Themes: "Practices",
+      Category: "Collaboration",
+    },
+    {
+      id: 25,
+      question:
+        "Backlog is prioritized based on business value derived to maximize the business outcome",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 26,
+      question:
+        "Technical debt is reviewed regularly (at least every month) with an action plan (refactoring).",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 27,
+      question:
+        "An explicit Testing strategy is described, written, adapted and implemented by the team. ",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 28,
+      question:
+        "Functional tests that have been automated are run continuously as part of CI/CD pipelined. ",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 29,
+      question:
+        "Application deployment and its system configuration are scripted and versioned and irrespective of the environment. ",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 30,
+      question:
+        "Team has dashboards to monitor release level indicators. These dashboards are displayed, available and understandable by the stakeholders. ",
+      Themes: "Practices",
+      Category: "Transparency",
+    },
+    {
+      id: 31,
+      question:
+        "Team is able to analyse root cause incidents and is able to implement appropriate remedial actions to avoid recurrence.",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 32,
+      question:
+        "Team is able to measure business feature utilization in production environment and are collecting consistent feedback from end users.",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 33,
+      question:
+        "Product Management is being undertaken through a digital tool accessible & visible to everyone in the team",
+      Themes: "Practices",
+      Category: "Transparency",
+    },
+    {
+      id: 34,
+      question:
+        "CI /CD pipeline is fully automated independent of environments",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 35,
+      question:
+        "Application is fully Cloud Native, uses Service Oriented Architecture and is built with APIs ",
+      Themes: "Practices",
+      Category: "Practices",
+    },
+    {
+      id: 36,
+      question:
+        "Business process / value stream optimization to achieve maximum efficiency is core focus area",
+      Themes: "Practices",
+      Category: "Product Management",
+    },
+    {
+      id: 37,
+      question:
+        "The leadership understands their style, strengths and areas of improvement",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 38,
+      question:
+        "The leadership is able to provide a clear vision to the team and articulate how their work contributes to organizational vision and objectives",
+      Themes: "Leadership",
+      Category: "Transparency",
+    },
+    {
+      id: 39,
+      question:
+        "The leadership is able to understand the strengths, aspirations, style of functioning and areas of improvement of each of the team members",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 40,
+      question:
+        "Leadership is able to define the boundaries, delegate authority for the team to make decisions within the boundaries to be autonomous",
+      Themes: "Leadership",
+      Category: "Autonomy",
+    },
+    {
+      id: 41,
+      question:
+        "Leadership is able to create an environment of openness and transparency within the team that promotes collaboration",
+      Themes: "Leadership",
+      Category: "Transparency",
+    },
+    {
+      id: 42,
+      question:
+        "Leadership is able to exhibit empathy towards the team members and understand their emotional state in different situations",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 43,
+      question:
+        "Leadership is able to exhibit vulnerability, seek help from team members where needed to increase levels of trust and organizational orientation  ",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 44,
+      question:
+        "Leadership is able reward and recognize people working towards team / organizational outcomes than personal outcomes to enhance culture of collaboration than competition",
+      Themes: "Leadership",
+      Category: "Ownership",
+    },
+    {
+      id: 45,
+      question:
+        "Leadership is able to cocreate the team objectives & key results that would validate the accomplishment of those objectives to promote shared ownership",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 46,
+      question:
+        "Leadership is able to showcase high levels of self-awareness, seek consistent feedback from team on areas of improvement, set realistic goals to improve upon and validate from the team if they are able to ",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 47,
+      question:
+        "Leadership is able to create a psychologically safe environment where failure is seen as learning to promote sense of ownership without fear of retribution",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 48,
+      question:
+        "The leadership exhibits ability to forecast, identify and seize opportunities in a consistently changing environment and enabling teams to contribute to change.",
+      Themes: "Leadership",
+      Category: "Leadership Development",
+    },
+    {
+      id: 49,
+      question:
+        "The Team members are able to understand the  vision and how their work contributes to organizational vision and objectives",
+      Themes: "Team Culture",
+      Category: "Transparency",
+    },
+    {
+      id: 50,
+      question:
+        "The team members are able to understand the strengths, aspirations, style of functioning and areas of improvement of each of the team members",
+      Themes: "Team Culture",
+      Category: "Ownership",
+    },
+    {
+      id: 51,
+      question:
+        "Team members are  open to criticism and accept negative feedback looking at it as a means to improve their skills & personality to be more effective",
+      Themes: "Team Culture",
+      Category: "Ownership",
+    },
+    {
+      id: 52,
+      question:
+        "Team members are able to foster & build an environment of openness and transparency within the team that promotes collaboration",
+      Themes: "Team Culture",
+      Category: "Ownership",
+    },
+    {
+      id: 53,
+      question:
+        "Team members are able to exhibit empathy towards the team members and understand & their emotional state and support  them in different situations",
+      Themes: "Team Culture",
+      Category: "Ownership",
+    },
+    {
+      id: 54,
+      question:
+        "Team members are able to exhibit vulnerability, seek help from team members where needed to increase levels of trust and improve the delivery outcomes",
+      Themes: "Team Culture",
+      Category: "Ownership",
+    },
+    {
+      id: 55,
+      question:
+        "Team members exhibit one team one goad spirit to enhance culture of collaboration & team / organizational orientation than personal orientation /competition",
+      Themes: "Team Culture",
+      Category: "Collaboration",
+    },
+    {
+      id: 56,
+      question:
+        "Team members are able to challenge the leadership constructively providing their inputs on both strategical and tactical aspects",
+      Themes: "Team Culture",
+      Category: "Autonomy",
+    },
+    {
+      id: 57,
+      question:
+        "Team members are able to showcase high levels of courage to provide feedback to others in the team as well as leadership on areas of improvement, and focus on continuously improving themselves as well.",
+      Themes: "Team Culture",
+      Category: "Collaboration",
+    },
+    {
+      id: 58,
+      question:
+        "Team is able to foster and support a psychologically safe environment where failure is seen as learning to promote sense of ownership without fear of retribution",
+      Themes: "Team Culture",
+      Category: "Collaboration",
+    },
+    {
+      id: 59,
+      question:
+        "The team does all in their control to fulfil their commitments even in difficult circumstance rather than looking for excuses to bank on.",
+      Themes: "Team Culture",
+      Category: "Ownership",
+    },
+    {
+      id: 60,
+      question:
+        "The team encourages and support innovative ideas from all the members to build continuous innovation culture",
+      Themes: "Team Culture",
+      Category: "Collaboration",
     },
   ];
   const [currentQuestion, setCurrentQuestion] = useState(0);

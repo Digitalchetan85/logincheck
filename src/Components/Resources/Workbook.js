@@ -108,21 +108,21 @@ const Workbook = () => {
             </Col>
             <Col md={4}>
               <div className="text-center">
-                <p className="">
+                <p className="text-center">
                   5 Modules with Guided Videos <b>@ $199</b>
                 </p>
-                <Workbook199Model
-                  title="5 Modules with Guided Videos <b>@ $199</b>"
-                  price="199"
-                  hello="/mentoring"
-                />
+                <div className="text-center">
+                  <Workbook199Model
+                    title="5 Modules with Guided Videos $199"
+                    price="199"
+                    hello="/mentoring"
+                  />
+                </div>
               </div>
             </Col>
             <Col md={4}>
               <div className="text-center">
-                <p className="">
-                  5 Modules without Guided Videos <b>@ $149</b>
-                </p>
+                <p className="text-center">5 Modules without Guided Videos @ $149</p>
                 <Workbook199Model
                   title="5 Modules without Guided Videos @ $199"
                   price="149"

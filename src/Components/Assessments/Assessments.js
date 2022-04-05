@@ -14,7 +14,7 @@ const Assessments = () => {
       desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: 1999,
       ActualPrice: 599,
-      to: "/assessments-coaching",
+      to: "/agility-team-assessments",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Assessments = () => {
       price: 1499,
       ActualPrice: 679,
       description: "text",
-      to: "/sample-assessment-test",
+      to: "/assessments-coaching",
     },
     {
       id: 3,
