@@ -7,7 +7,6 @@ import TopMenubar from "../Includes/TopMenubar";
 import ReactRadar from "./ReactRadar";
 
 const AgileCoachingAssessment = () => {
-  const [questions, SetQuestions] = useState(coachingAssessment);
   const coachingAssessment = [
     {
       id: 1,
@@ -239,6 +238,8 @@ const AgileCoachingAssessment = () => {
       coachingCompetency: "Cultivates Trust & Safety",
     }
   ];
+  
+  const [questions, SetQuestions] = useState(coachingAssessment);
 
   useEffect(() => {
     if(localStorage.getItem("auth_token"))
