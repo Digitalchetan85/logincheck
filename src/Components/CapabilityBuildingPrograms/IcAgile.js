@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import agile from "../Images/agile-visa.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const IcAgile = () => {
   const courses = [
@@ -73,6 +74,13 @@ const IcAgile = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>About Us | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

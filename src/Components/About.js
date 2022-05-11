@@ -9,10 +9,18 @@ import jayramCertifications from "./Images/about/jayarm-certifications.png";
 import anuCertifications from "./Images/about/anu-certifications.png";
 import TopMenubar from "./Includes/TopMenubar";
 import Footer from "./Includes/Footer";
+import Helmet from "react-helmet";
 
 const About = () => {
   return (
     <>
+    <Helmet>
+        <title>About Us | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="about-us" className="bg-primary">
         <Container>

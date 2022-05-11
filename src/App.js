@@ -310,7 +310,7 @@ function App() {
             element={<AgileTeamAssessment />}
           ></Route>
           <Route
-            path="/agile-coach-assessment"
+            path="/agile-coaching-assessment"
             element={<AgileCoachingAssessment />}
           ></Route>
           <Route

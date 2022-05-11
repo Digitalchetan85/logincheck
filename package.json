@@ -15,6 +15,7 @@
     "react-bootstrap": "^2.2.2",
     "react-cookie-consent": "^7.3.1",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-owl-carousel2": "^0.3.0",
     "react-radar": "^2.0.0-beta.111",
     "react-router-dom": "^6.2.2",
