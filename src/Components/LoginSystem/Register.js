@@ -25,7 +25,7 @@ const Register = () => {
           if (response.data.status === 200) {
             // swal("Success",response.data.message,"success")
             SetErrors({ ...Errors, SuccessMessage: response.data.message });
-            // navigate("/agility");
+            // navigate("/");
           } else {
             SetErrors(response.data.validation_errors);
           }
