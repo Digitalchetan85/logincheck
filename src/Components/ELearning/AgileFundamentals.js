@@ -1,10 +1,18 @@
 import React from "react";
 import { Container, Image, Row, Col } from "react-bootstrap";
+import Helmet from "react-helmet";
 import imgurl from "../Images/e-learning-programs/13.png";
 
 const AgileFundamentals = () => {
   return (
     <div>
+      <Helmet>
+        <title> E-Learning Programs| DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       {/* <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>

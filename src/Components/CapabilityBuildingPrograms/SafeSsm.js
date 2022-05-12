@@ -11,6 +11,7 @@ import icpSsm from "../Images/capability-building-programs/safe/ssm.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
+import Helmet from "react-helmet";
 
 const SafeSsm = () => {
   let history = useNavigate();
@@ -146,6 +147,13 @@ const SafeSsm = () => {
   }, []);
   return (
     <>
+    <Helmet>
+        <title> SAFE SSM | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
     <TopMenubar />
       <div
         id="ic-agile-flipbook"

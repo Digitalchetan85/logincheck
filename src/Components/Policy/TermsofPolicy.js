@@ -1,9 +1,17 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Helmet from "react-helmet";
 
 const TermsofPolicy = () => {
   return (
     <div>
+      <Helmet>
+        <title> Terms Of Policy | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"

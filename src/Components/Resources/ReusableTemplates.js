@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import Helmet from "react-helmet";
 import ToolkitImage from "../Images/workbooks/agile-coaching-toolkit.png";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
@@ -20,6 +21,13 @@ const ReusableTemplates = () => {
   });
   return (
     <div>
+      <Helmet>
+        <title>Reusable Templates | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="bg-primary">
         <Container>

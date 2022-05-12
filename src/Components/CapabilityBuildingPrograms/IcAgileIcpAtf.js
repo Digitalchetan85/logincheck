@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Image} from "react-bootstrap";
+import { Col, Container, Row, Image } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import video1 from "../Images/videos/ICP-ENT.mp4"
-import video2 from "../Images/testimonial-videos/Carl-Feedback-final.mp4"
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import video1 from "../Images/videos/ICP-ENT.mp4";
+import video2 from "../Images/testimonial-videos/Carl-Feedback-final.mp4";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import icpAtf from "../Images/capability-building-programs/icp-atf.png";
 import agile from "../Images/agile-visa.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
+import Helmet from "react-helmet";
 
 const IcAgileIcpAtf = () => {
   let history = useNavigate();
@@ -34,8 +35,7 @@ const IcAgileIcpAtf = () => {
     displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
@@ -64,7 +64,13 @@ const IcAgileIcpAtf = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone, schedule) => {
+  const displayRazorpay = async (
+    amount,
+    username,
+    useremail,
+    userphone,
+    schedule
+  ) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -92,7 +98,7 @@ const IcAgileIcpAtf = () => {
           paymentid,
           username,
           useremail,
-        }
+        };
 
         const paymentdata = {
           name: username,
@@ -101,18 +107,27 @@ const IcAgileIcpAtf = () => {
           amount: amount,
           paymentid: paymentid,
           coursename: "ICP - ATF",
-          schedule: schedule
-        }
+          schedule: schedule,
+        };
 
-        axios.post('/api/payment', paymentdata).then(function (response) {
-          axios.post('api/payment-email', paymentdata).then(function (response) {
-            if(response.status === 200) {
-              swal('Success', 'Thanks for your Registation. We will contact you soon', "success")
-            }
+        axios
+          .post("/api/payment", paymentdata)
+          .then(function (response) {
+            axios
+              .post("api/payment-email", paymentdata)
+              .then(function (response) {
+                if (response.status === 200) {
+                  swal(
+                    "Success",
+                    "Thanks for your Registation. We will contact you soon",
+                    "success"
+                  );
+                }
+              });
           })
-        }).catch(function (error) {
-          console.log(error);
-        })
+          .catch(function (error) {
+            console.log(error);
+          });
       },
       prefill: {
         name: username,
@@ -126,9 +141,7 @@ const IcAgileIcpAtf = () => {
   };
   useEffect(() => {
     axios
-      .get(
-        "/api/course-schedule-by-coursename/ICP - ATF"
-      )
+      .get("/api/course-schedule-by-coursename/ICP - ATF")
       .then((response) => {
         // console.log(response.data.data);
         setSchedule(response.data);
@@ -139,7 +152,14 @@ const IcAgileIcpAtf = () => {
   }, []);
   return (
     <>
-    <TopMenubar />
+      <Helmet>
+        <title>IC Agile ATF | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -157,8 +177,11 @@ const IcAgileIcpAtf = () => {
                       </a>
                     </li>
                     <li className="breadcrumb-item" aria-current="page">
-                      <a href="/capability-building-programs/ic-agile" className="custom">
-                      IC - Agile
+                      <a
+                        href="/capability-building-programs/ic-agile"
+                        className="custom"
+                      >
+                        IC - Agile
                       </a>
                     </li>
                     <li className="breadcrumb-item">ICP - ATF</li>
@@ -177,14 +200,28 @@ const IcAgileIcpAtf = () => {
                 <Col md={3} className="align-self-center">
                   <Image src={icpAtf} alt="" className="img-fluid" />
                   <h5 className="text-center py-1">In collaboration with</h5>
-                    <Image src={agile} alt="" className="img-fluid" />
+                  <Image src={agile} alt="" className="img-fluid" />
                 </Col>
                 <Col md={9} className="">
                   <h2 className="text-primary py-3 ">
                     About This Certification
                   </h2>
-                  <p className="text-align-justify">ICP-ATF is one of two knowledge-based certifications on the Agile Coaching track. It focuses primarily on the Skills, Competencies & Mindset expected of an Agile Team Facilitator. It also provides tools and techniques for effectively designing & facilitating meetings and workshops engaging the teams in accomplishing agreed outcomes.</p>
-                  <p>Attending this certification program, participants will enhance their skills on art of facilitation fostering collaboration and wholesome participation by teams. Participants will also build their facilitator toolkit and gain experience of facilitating specific agile events within their context.</p>
+                  <p className="text-align-justify">
+                    ICP-ATF is one of two knowledge-based certifications on the
+                    Agile Coaching track. It focuses primarily on the Skills,
+                    Competencies & Mindset expected of an Agile Team
+                    Facilitator. It also provides tools and techniques for
+                    effectively designing & facilitating meetings and workshops
+                    engaging the teams in accomplishing agreed outcomes.
+                  </p>
+                  <p>
+                    Attending this certification program, participants will
+                    enhance their skills on art of facilitation fostering
+                    collaboration and wholesome participation by teams.
+                    Participants will also build their facilitator toolkit and
+                    gain experience of facilitating specific agile events within
+                    their context.
+                  </p>
                 </Col>
               </Row>
               <Row className="py-2">
@@ -205,12 +242,17 @@ const IcAgileIcpAtf = () => {
                     <li>Access to eLearning Portal</li>
                     <li>Course material & Work Book</li>
                     <li>Export of Miro Board</li>
-                    <li>ICP-ATF certificate from ICAgile (valid for lifetime) </li>
+                    <li>
+                      ICP-ATF certificate from ICAgile (valid for lifetime){" "}
+                    </li>
                     <li>Connect to Digital Agility Institute Community</li>
                   </ul>
                 </Col>
                 <p>
-                Our training is designed by Certified & Practicing Professional Coaches, Training from the Back of the Room practitioners specialising in delivering experiential learning programs. 
+                  Our training is designed by Certified & Practicing
+                  Professional Coaches, Training from the Back of the Room
+                  practitioners specialising in delivering experiential learning
+                  programs.
                 </p>
                 <p>
                   This masterclass is delivered by practicing professional
@@ -227,13 +269,15 @@ const IcAgileIcpAtf = () => {
                     <li>Agile Coaches and aspiring coaches</li>
                     <li>Scrum Masters, Agile Project Managers, </li>
                     <li>Product Owners, Business Analysts</li>
-                    <li>and anyone with the desire to explore the power of Facilitation.</li>
+                    <li>
+                      and anyone with the desire to explore the power of
+                      Facilitation.
+                    </li>
                   </ul>
                 </Col>
                 <Col md={6} className="pb-3 pt-md-2 pb-md-2">
                   <h4 className="text-primary py-2">Prerequisites:</h4>
                   <ul>
-                    
                     <li>
                       There are no conditional pre-requisites for the training
                       program
@@ -361,14 +405,16 @@ const IcAgileIcpAtf = () => {
                             name="schedule"
                           >
                             <option>-- Select --</option>
-                            {Timing ? Timing.map((option) => (
-                              <option
-                                key={option.id}
-                                value={option.coursetimings}
-                              >
-                                {option.coursetimings}
-                              </option>
-                            )) : null}
+                            {Timing
+                              ? Timing.map((option) => (
+                                  <option
+                                    key={option.id}
+                                    value={option.coursetimings}
+                                  >
+                                    {option.coursetimings}
+                                  </option>
+                                ))
+                              : null}
                           </Field>
                           <small className="text-danger">
                             <ErrorMessage name="schedule" />
@@ -387,15 +433,19 @@ const IcAgileIcpAtf = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                        {localStorage.getItem('auth_token') ? <div className="">
-                          <Button className="btn btn-primary" type="submit">
-                            Checkout
-                          </Button>
-                        </div> : <div className="">
-                          <a className="btn btn-primary" href="/login">
-                            Login to Checkout
-                          </a>
-                        </div>}
+                        {localStorage.getItem("auth_token") ? (
+                          <div className="">
+                            <Button className="btn btn-primary" type="submit">
+                              Checkout
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="">
+                            <a className="btn btn-primary" href="/login">
+                              Login to Checkout
+                            </a>
+                          </div>
+                        )}
                       </Col>
                     </Row>
                   </Form>

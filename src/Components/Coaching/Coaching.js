@@ -7,6 +7,7 @@ import imgurl1 from "../Images/coaching/11.png";
 import MentoringModel from "../Mentoring/MentoringModel";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Coaching = () => {
   const [show, setShow] = useState(false);
@@ -15,6 +16,13 @@ const Coaching = () => {
   const handleShow = () => setShow(true);
   return (
     <div>
+      <Helmet>
+        <title>Coaching | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div
         id="ic-agile-flipbook"

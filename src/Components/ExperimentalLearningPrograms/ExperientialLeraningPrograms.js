@@ -7,6 +7,7 @@ import EACimage from "../Images/experimental-learning-programs/dai-eac/eac.png";
 import ExperientialPopup from "./ExperientialPopup";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const ExperientialLearningPrograms = () => {
   const VideoLink = [
@@ -26,6 +27,13 @@ const ExperientialLearningPrograms = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> Experiential Learning Programs | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

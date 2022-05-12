@@ -3,6 +3,7 @@ import { Row, Col, Container, Button, Image } from "react-bootstrap";
 import { Form, ErrorMessage, Field, Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import Helmet from "react-helmet";
 
 const MentoringPromotion = () => {
   const [formStatus, setformStatus] = useState("");
@@ -73,6 +74,13 @@ const MentoringPromotion = () => {
   
   return (
     <div>
+      <Helmet>
+        <title> Mentoring Promotion | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <div className="bg-primary">
         <Container>
           <Row>

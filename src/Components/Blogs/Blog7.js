@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import Helmet from "react-helmet";
 import BlogImage from "../Images/blogs/blog-7.png";
 import innerimage from "../Images/blogs/blog-71.png";
 import Footer from "../Includes/Footer";
@@ -8,6 +9,13 @@ import TopMenubar from "../Includes/TopMenubar";
 const Blog7 = () => {
   return (
     <div>
+      <Helmet>
+        <title>Blogs - Unlearning | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>

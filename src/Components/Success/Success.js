@@ -7,6 +7,7 @@ import img4 from "../Images/capability-building-programs/icp-atf.png";
 import img5 from "../Images/capability-building-programs/icp-ent.png";
 import img6 from "../Images/capability-building-programs/icp-pdv.png";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 const Success = () => {
     const courses = [
@@ -68,6 +69,13 @@ const Success = () => {
       ];
   return (
     <div>
+      <Helmet>
+        <title> Success | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <div className="pt-2 pb-2 pt-md-5 pb-md-5">
         <Container>
           <Row>

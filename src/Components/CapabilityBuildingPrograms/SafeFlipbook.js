@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
+import Helmet from "react-helmet";
 
 const SafeFlipbook = () => {
   let history = useNavigate();
@@ -149,6 +150,13 @@ const SafeFlipbook = () => {
   }, []);
   return (
     <>
+    <Helmet>
+        <title> SAFE FlipBook | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div
         id="ic-agile-flipbook"

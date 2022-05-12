@@ -3,6 +3,7 @@ import { Col, Container, Row, Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Assessments = () => {
   const courses = [
@@ -39,6 +40,13 @@ const Assessments = () => {
   ];
   return (
     <div>
+      <Helmet>
+        <title> Assessments | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>

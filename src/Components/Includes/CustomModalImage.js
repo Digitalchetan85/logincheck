@@ -76,6 +76,7 @@ const CustomModalImageUpload = () => {
 
   return (
     <div>
+      
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import img1 from "../Images/capability-building-programs/dasa/dasa.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Dasa = () => {
   const courses = [
@@ -19,6 +20,13 @@ const Dasa = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> DASA | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

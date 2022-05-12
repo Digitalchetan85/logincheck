@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import video1 from "../Images/videos/ICP-ORG.mp4"
-import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4"
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import video1 from "../Images/videos/ICP-ORG.mp4";
+import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import icpOrg from "../Images/capability-building-programs/icp-org.png";
-import agile from "../Images/agile-visa.png"
+import agile from "../Images/agile-visa.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
-
+import Helmet from "react-helmet";
 
 const IcAgileIcpOrg = () => {
   let history = useNavigate();
@@ -35,8 +35,7 @@ const IcAgileIcpOrg = () => {
     displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
@@ -65,7 +64,13 @@ const IcAgileIcpOrg = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone, schedule) => {
+  const displayRazorpay = async (
+    amount,
+    username,
+    useremail,
+    userphone,
+    schedule
+  ) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -93,7 +98,7 @@ const IcAgileIcpOrg = () => {
           paymentid,
           username,
           useremail,
-        }
+        };
 
         const paymentdata = {
           name: username,
@@ -136,9 +141,7 @@ const IcAgileIcpOrg = () => {
   };
   useEffect(() => {
     axios
-      .get(
-        "/api/course-schedule-by-coursename/ICP - ORG"
-      )
+      .get("/api/course-schedule-by-coursename/ICP - ORG")
       .then((response) => {
         // console.log(response.data.data);
         setSchedule(response.data);
@@ -149,14 +152,21 @@ const IcAgileIcpOrg = () => {
   }, []);
   return (
     <>
-    <TopMenubar />
+      <Helmet>
+        <title>IC Agile ORG | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
       >
         <Container>
           <Row>
-          <Col md={12}>
+            <Col md={12}>
               <div className="">
                 <h2 className="text-center text-white">ICP - ORG</h2>
                 <nav aria-label="breadcrumb">
@@ -167,8 +177,11 @@ const IcAgileIcpOrg = () => {
                       </a>
                     </li>
                     <li className="breadcrumb-item" aria-current="page">
-                      <a href="/capability-building-programs/ic-agile" className="custom">
-                      IC - Agile
+                      <a
+                        href="/capability-building-programs/ic-agile"
+                        className="custom"
+                      >
+                        IC - Agile
                       </a>
                     </li>
                     <li className="breadcrumb-item">ICP - ORG</li>
@@ -196,8 +209,20 @@ const IcAgileIcpOrg = () => {
                     About This Certification
                   </h2>
                   <p className="text-align-justify">
-                  ICP-ORG certification is one of the advanced certifications through which you will  understand that with the shift to more agile ways of working, organizations need a structure that will pivot & adapt quickly to new challenges and the world around them.</p>
-                  <p>We need to find ways to break down silos and increase opportunities for people in different areas to work collaboratively. There is a need to align the organization around the flow of work through the system and reduce bureaucracy to optimise value delivery throughout the organization.</p>
+                    ICP-ORG certification is one of the advanced certifications
+                    through which you will understand that with the shift to
+                    more agile ways of working, organizations need a structure
+                    that will pivot & adapt quickly to new challenges and the
+                    world around them.
+                  </p>
+                  <p>
+                    We need to find ways to break down silos and increase
+                    opportunities for people in different areas to work
+                    collaboratively. There is a need to align the organization
+                    around the flow of work through the system and reduce
+                    bureaucracy to optimise value delivery throughout the
+                    organization.
+                  </p>
                 </Col>
               </Row>
               <Row className="py-2">
@@ -208,7 +233,10 @@ const IcAgileIcpOrg = () => {
                   <ul>
                     <li>Shifting to Cross-Functional Autonomous Teams</li>
                     <li>Distributing Power, Control, and Authority</li>
-                    <li>Acknowledging Individuals as the Key to the Adaptive Network</li>
+                    <li>
+                      Acknowledging Individuals as the Key to the Adaptive
+                      Network
+                    </li>
                     <li>Building Collective Intelligence</li>
                   </ul>
                 </Col>
@@ -218,12 +246,17 @@ const IcAgileIcpOrg = () => {
                     <li>Access to eLearning Portal</li>
                     <li>Course material & Work Book</li>
                     <li>Export of Miro Board</li>
-                    <li>ICP-ORG certificate from ICAgile (valid for lifetime) </li>
+                    <li>
+                      ICP-ORG certificate from ICAgile (valid for lifetime){" "}
+                    </li>
                     <li>Connect to Digital Agility Institute Community</li>
                   </ul>
                 </Col>
                 <p>
-                Our training is designed by Certified & Practicing Professional Coaches, Training from the Back of the Room practitioners specialising in delivering experiential learning programs. 
+                  Our training is designed by Certified & Practicing
+                  Professional Coaches, Training from the Back of the Room
+                  practitioners specialising in delivering experiential learning
+                  programs.
                 </p>
                 <p>
                   This masterclass is delivered by practicing professional
@@ -240,7 +273,10 @@ const IcAgileIcpOrg = () => {
                     <li>Enterprise Agile Coaches and aspiring coaches</li>
                     <li>First level & Middle level Managers </li>
                     <li>Change Managers & Change Agents </li>
-                    <li>And anyone with the desire to explore the power of People Development.</li>
+                    <li>
+                      And anyone with the desire to explore the power of People
+                      Development.
+                    </li>
                   </ul>
                 </Col>
                 <Col md={6} className="pb-3 pt-md-2 pb-md-2">
@@ -374,14 +410,16 @@ const IcAgileIcpOrg = () => {
                             name="schedule"
                           >
                             <option>-- Select --</option>
-                            {Timing ? Timing.map((option) => (
-                              <option
-                                key={option.id}
-                                value={option.coursetiming}
-                              >
-                                {option.coursetiming}
-                              </option>
-                            )) : null}
+                            {Timing
+                              ? Timing.map((option) => (
+                                  <option
+                                    key={option.id}
+                                    value={option.coursetiming}
+                                  >
+                                    {option.coursetiming}
+                                  </option>
+                                ))
+                              : null}
                           </Field>
                           <small className="text-danger">
                             <ErrorMessage name="schedule" />
@@ -400,15 +438,19 @@ const IcAgileIcpOrg = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                      {localStorage.getItem('auth_token') ? <div className="">
-                          <Button className="btn btn-primary" type="submit">
-                            Checkout
-                          </Button>
-                        </div> : <div className="">
-                          <a className="btn btn-primary" href="/login">
-                            Login to Checkout
-                          </a>
-                        </div>}
+                        {localStorage.getItem("auth_token") ? (
+                          <div className="">
+                            <Button className="btn btn-primary" type="submit">
+                              Checkout
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="">
+                            <a className="btn btn-primary" href="/login">
+                              Login to Checkout
+                            </a>
+                          </div>
+                        )}
                       </Col>
                     </Row>
                   </Form>

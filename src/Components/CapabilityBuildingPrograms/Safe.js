@@ -8,6 +8,7 @@ import img5 from "../Images/capability-building-programs/safe/lpm.png";
 import { Link } from "react-router-dom";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Safe = () => {
   const courses = [
@@ -55,6 +56,13 @@ const Safe = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> SAFE | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

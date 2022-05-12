@@ -75,7 +75,7 @@ const IcAgile = () => {
   return (
     <div>
       <Helmet>
-        <title>About Us | DAI</title>
+        <title>IC Agile | DAI</title>
         {/* <meta
           name="description"
           content="Get stats about every music from every movie"

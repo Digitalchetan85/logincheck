@@ -8,6 +8,7 @@ import imgurl1 from "../Images/mentoring/10.png";
 import MentoringModel from "./MentoringModel";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Mentoring = () => {
   const [show, setShow] = useState(false);
@@ -16,6 +17,13 @@ const Mentoring = () => {
   const handleShow = () => setShow(true);
   return (
     <div>
+      <Helmet>
+        <title>Mentoring | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="bg-primary">
         <Container>

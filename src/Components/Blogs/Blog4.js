@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import Helmet from "react-helmet";
 import BlogImage from "../Images/blogs/blog-4.png";
 import BlogImage1 from "../Images/blogs/blog-41.png";
 import innerimage2 from "../Images/blogs/blog-42.png";
@@ -9,6 +10,13 @@ import TopMenubar from "../Includes/TopMenubar";
 const Blog4 = () => {
   return (
     <div>
+      <Helmet>
+        <title>Blog - How to A’s your limiting beliefs? | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>

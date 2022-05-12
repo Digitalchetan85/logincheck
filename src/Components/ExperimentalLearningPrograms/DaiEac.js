@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const DaiEac = () => {
   const [formStatus, setformStatus] = useState("");
@@ -128,6 +129,13 @@ const DaiEac = () => {
 
   return (
     <>
+    <Helmet>
+        <title> DAI EAC | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
     <TopMenubar />
       <div
         id="ic-agile-flipbook"

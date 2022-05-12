@@ -8,10 +8,18 @@ import paimage from "../Images/workbooks/personal-agility-workbook.png";
 import Workbook199Model from "./Workbook199Model";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Workbook = () => {
   return (
     <div>
+      <Helmet>
+        <title> Workbooks | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="bg-primary">
         <Container>

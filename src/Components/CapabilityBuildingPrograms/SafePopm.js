@@ -11,6 +11,7 @@ import icpPopm from "../Images/capability-building-programs/safe/popm.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
+import Helmet from "react-helmet";
 
 const SafePopm = () => {
   let history = useNavigate();
@@ -146,6 +147,13 @@ const SafePopm = () => {
   }, []);
   return (
     <>
+    <Helmet>
+        <title> SAFE POPM | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
     <TopMenubar />
       <div
         id="ic-agile-flipbook"

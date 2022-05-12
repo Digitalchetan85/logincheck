@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
+import Helmet from "react-helmet";
 import * as Yup from "yup";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
@@ -629,6 +630,13 @@ const AgileCoachingAssessment = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> Agile Coaching Assessment | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <h2 className="text-center text-white">Assessments</h2>

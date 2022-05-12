@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Image} from "react-bootstrap";
+import { Col, Container, Row, Image } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import video1 from "../Images/SAFe-Course-Videos/SAFe-ASM.mp4";
 import video2 from "../Images/testimonial-videos/Ian-Feedback-final.mp4";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import icpSasm from "../Images/capability-building-programs/safe/sasm.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
+import Helmet from "react-helmet";
 
 const SafeSasm = () => {
   let history = useNavigate();
@@ -23,7 +24,6 @@ const SafeSasm = () => {
     email: "",
     phone: "",
     schedule: "",
-    
   };
 
   const onSubmit = (values) => {
@@ -33,8 +33,7 @@ const SafeSasm = () => {
     displayRazorpay(Price, data.name, data.email, data.phone, data.schedule);
   };
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
@@ -63,7 +62,13 @@ const SafeSasm = () => {
     });
   };
 
-  const displayRazorpay = async (amount, username, useremail, userphone, schedule) => {
+  const displayRazorpay = async (
+    amount,
+    username,
+    useremail,
+    userphone,
+    schedule
+  ) => {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -91,7 +96,7 @@ const SafeSasm = () => {
           paymentid,
           username,
           useremail,
-        }
+        };
 
         const paymentdata = {
           name: username,
@@ -134,9 +139,7 @@ const SafeSasm = () => {
   };
   useEffect(() => {
     axios
-      .get(
-        "/api/course-schedule-by-coursename/SAFe5 - SASM"
-      )
+      .get("/api/course-schedule-by-coursename/SAFe5 - SASM")
       .then((response) => {
         // // console.log(response.data);
         setSchedule(response.data);
@@ -147,7 +150,14 @@ const SafeSasm = () => {
   }, []);
   return (
     <>
-    <TopMenubar />
+      <Helmet>
+        <title> SAFE SASM | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
+      <TopMenubar />
       <div
         id="ic-agile-flipbook"
         className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary"
@@ -192,8 +202,19 @@ const SafeSasm = () => {
                   <h2 className="text-primary py-3 ">
                     About This Certification
                   </h2>
-                  <p className="text-align-justify">The SAFe Advanced Scrum Master course will give you the tools you need to improve your coaching and facilitation skills, avoid common missteps, and encourage relentless improvement. You’ll learn how to apply Lean, Kanban, DevOps, and SAFe principles to improve team and business outcomes. </p>
-                  <p>You’ll up-level your facilitation skills for key Agile and Scaled Agile Framework® events, whether they’re in person or across teams and time zones. And you’ll discover how communities of practice can support continuous improvement.</p>
+                  <p className="text-align-justify">
+                    The SAFe Advanced Scrum Master course will give you the
+                    tools you need to improve your coaching and facilitation
+                    skills, avoid common missteps, and encourage relentless
+                    improvement. You’ll learn how to apply Lean, Kanban, DevOps,
+                    and SAFe principles to improve team and business outcomes.{" "}
+                  </p>
+                  <p>
+                    You’ll up-level your facilitation skills for key Agile and
+                    Scaled Agile Framework® events, whether they’re in person or
+                    across teams and time zones. And you’ll discover how
+                    communities of practice can support continuous improvement.
+                  </p>
                 </Col>
               </Row>
               <Row className="py-2">
@@ -202,26 +223,45 @@ const SafeSasm = () => {
                     Featured Learning Outcomes
                   </h4>
                   <ul>
-                    <li>How to apply SAFe principles to facilitate, enable, and coach in a multi-team environment.</li>
-                    <li>How to adopt scalable engineering practices, Agile architecture to optimize flow.</li>
-                    <li>How to advance your facilitation skills and delivering end-to-end value.</li>
-                    <li>How to build communities of practice to support high-performing teams and ART efficiency.</li>
+                    <li>
+                      How to apply SAFe principles to facilitate, enable, and
+                      coach in a multi-team environment.
+                    </li>
+                    <li>
+                      How to adopt scalable engineering practices, Agile
+                      architecture to optimize flow.
+                    </li>
+                    <li>
+                      How to advance your facilitation skills and delivering
+                      end-to-end value.
+                    </li>
+                    <li>
+                      How to build communities of practice to support
+                      high-performing teams and ART efficiency.
+                    </li>
                   </ul>
                 </Col>
                 <Col md={6} className="">
                   <h4 className="text-primary py-2">What you will receive</h4>
                   <ul>
                     <li>Course materials</li>
-                    <li>Access to SAFe® Collaborate, a visual online workspace</li>
+                    <li>
+                      Access to SAFe® Collaborate, a visual online workspace
+                    </li>
                     <li>One-year membership to the SAFe® Community Platform</li>
-                    <li>Access to content, tools, and resources you need to practice SAFe every day
-</li>
+                    <li>
+                      Access to content, tools, and resources you need to
+                      practice SAFe every day
+                    </li>
                     <li>SAFe Advanced Scrum Master certification exam</li>
                     <li>Connect to Digital Agility Institute Community</li>
                   </ul>
                 </Col>
-                <p>Our training is delivered by SAFe Program Consultants with diverse experience of transforming teams & organizations implementing SAFe successfully.</p>
-                
+                <p>
+                  Our training is delivered by SAFe Program Consultants with
+                  diverse experience of transforming teams & organizations
+                  implementing SAFe successfully.
+                </p>
               </Row>
 
               <Row>
@@ -231,14 +271,17 @@ const SafeSasm = () => {
                     <li>First level Managers</li>
                     <li>Agile Project Managers</li>
                     <li>Scrum Masters & aspiring Scrum Masters</li>
-                    <li>Business Analysts,  </li>
-                    <li>and anyone with the desire to explore the power of servant leadership.</li>
+                    <li>Business Analysts, </li>
+                    <li>
+                      and anyone with the desire to explore the power of servant
+                      leadership.
+                    </li>
                   </ul>
                 </Col>
                 <Col md={6} className="pb-3 pt-md-2 pb-md-2">
                   <h4 className="text-primary py-2">Prerequisites:</h4>
                   <ul>
-                   <li>An Intermediate level course</li>
+                    <li>An Intermediate level course</li>
                     <li>
                       There are no conditional pre-requisites for the training
                       program
@@ -286,10 +329,9 @@ const SafeSasm = () => {
                 <p>
                   Course Price:
                   <strong> ${coursePrice}</strong>
-                </p>             
+                </p>
                 <p>
-                  Course Price: {" "}
-                  <strong> (INR 50999/-)</strong>
+                  Course Price: <strong> (INR 50999/-)</strong>
                 </p>
                 <Formik
                   initialValues={initialValues}
@@ -391,7 +433,7 @@ const SafeSasm = () => {
                     </Row>
                     <Row className="mb-3">
                       <Col md={12}>
-                      {localStorage.getItem("auth_token") ? (
+                        {localStorage.getItem("auth_token") ? (
                           <div className="">
                             <Button className="btn btn-primary" type="submit">
                               Checkout

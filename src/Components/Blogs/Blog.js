@@ -17,6 +17,7 @@ import img14 from "../Images/blogs/blog-14.png";
 import { Link } from "react-router-dom";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import Helmet from "react-helmet";
 
 const Blogs = () => {
   const blogs = [
@@ -150,6 +151,13 @@ const Blogs = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Blogs | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="bg-primary">
         <Container>

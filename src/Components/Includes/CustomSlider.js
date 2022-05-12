@@ -4,6 +4,7 @@ import { Col, Container, Row, Button, Image } from "react-bootstrap";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Helmet from "react-helmet";
 
 const CustomSlider = () => {
   const [formStatus, setformStatus] = useState("");
@@ -80,6 +81,13 @@ const CustomSlider = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> Custom Slider | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>

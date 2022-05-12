@@ -8,6 +8,7 @@ import video2 from "../Images/esm-participant-videos/anish-learnings.mp4";
 import video3 from "../Images/esm-participant-videos/arjun-learnings.mp4";
 import TopMenubar from "./TopMenubar";
 import Footer from "./Footer";
+import Helmet from "react-helmet";
 
 const CommunityEvents = () => {
 
@@ -28,6 +29,13 @@ const CommunityEvents = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> Comunity Events | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import Helmet from "react-helmet";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
 import PayPal from "../PayPal/PayPal";
@@ -126,6 +127,13 @@ const DasaFlipbook = () => {
   const [checkout, setCheckout] = useState(false);
   return (
     <>
+    <Helmet>
+        <title> DASA Flipbook | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
     <TopMenubar />
       <div id="ic-agile-flipbook" className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>

@@ -11,6 +11,7 @@ import icpLpm from "../Images/capability-building-programs/safe/lpm.png";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
 import swal from "sweetalert";
+import Helmet from "react-helmet";
 
 const SafeLpm = () => {
   let history = useNavigate();
@@ -146,6 +147,13 @@ const SafeLpm = () => {
   }, []);
   return (
     <>
+    <Helmet>
+        <title> SAFE LPM | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
     <TopMenubar />
       <div
         id="ic-agile-flipbook"

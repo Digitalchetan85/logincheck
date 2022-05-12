@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import Helmet from "react-helmet";
 import image1 from "../Images/manifesto/Manifesto.png";
 import image2 from "../Images/manifesto/Principles.png";
 import Footer from "./Footer";
@@ -8,6 +9,13 @@ import TopMenubar from "./TopMenubar";
 const Manifesto = () => {
   return (
     <div>
+      <Helmet>
+        <title> Manifesto | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

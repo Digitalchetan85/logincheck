@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Helmet from "react-helmet";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
 
@@ -276,6 +277,13 @@ const YoutubeVideos = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Youtube Videos | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="ic-agile" className="bg-primary">
         <Container>

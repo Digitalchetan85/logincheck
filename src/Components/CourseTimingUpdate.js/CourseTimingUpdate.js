@@ -5,6 +5,7 @@ import axios from "axios";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
+import Helmet from "react-helmet";
 
 const CourseTimingUpdate = () => {
   const [formStatus, setformStatus] = useState("");
@@ -42,6 +43,13 @@ const CourseTimingUpdate = () => {
   });
   return (
     <>
+    <Helmet>
+        <title> Course Timing Update | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
     <TopMenubar />
     <div className="mt-5 mb-5">
       <Container>

@@ -3,10 +3,18 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import BlogImage from "../Images/blogs/blog-1.png";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
+import Helmet from "react-helmet";
 
 const Blog1 = () => {
   return (
     <div>
+      <Helmet>
+        <title>Blog - Agile Transformation | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div className="pt-2 pb-2 pt-md-5 pb-md-5 bg-primary">
         <Container>
