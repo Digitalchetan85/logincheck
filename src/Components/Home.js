@@ -14,10 +14,19 @@ import HomeAssessments from "./Includes/HomeAssessments";
 import HomeDIY from "./Includes/HomeDIY";
 import TopMenubar from "./Includes/TopMenubar";
 import Footer from "./Includes/Footer";
+import Helmet from "react-helmet";
 
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Digital Agility Institute | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
+
       <TopMenubar />
       <MainSlider />
       <div id="about" className="pt-3 pb-3 pt-md-5 pb-md-5 bg-light">

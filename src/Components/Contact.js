@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Row, Form, Col, Container, Button, Modal } from "react-bootstrap";
+import Helmet from "react-helmet";
 import UseForm from "../Components/ContactFrom/UseForm";
 import Validation from "../Components/ContactFrom/Validation";
 import Footer from "./Includes/Footer";
@@ -23,6 +24,13 @@ const Contact = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Contact Us | DAI</title>
+        {/* <meta
+          name="description"
+          content="Get stats about every music from every movie"
+        /> */}
+      </Helmet>
       <TopMenubar />
       <div id="about-us" className="bg-primary">
         <Container>
