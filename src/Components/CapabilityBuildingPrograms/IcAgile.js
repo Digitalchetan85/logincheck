@@ -47,7 +47,7 @@ const IcAgile = () => {
       id: 4,
       imgurl: img4,
       alt: "",
-      title: "IC Agile ICP - ATF Agile Certification",
+      title: "IC Agile ICP - ATF Certification",
       price: 1499,
       ActualPrice: 525,
       to: "/ic-agile/icp-atf/",

@@ -81,7 +81,7 @@ const IcAgileIcpOrg = () => {
     }
 
     const options = {
-      key: "rzp_test_ZxuPI2Sp8AA2N0",
+      key: "rzp_live_1SmU1PuRbz53st",
       currency: "INR",
       amount: amount * 100,
       contact: userphone,

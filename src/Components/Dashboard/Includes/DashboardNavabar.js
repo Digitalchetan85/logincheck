@@ -63,7 +63,7 @@ const DashboardNavabar = () => {
             >
               <i className="fas fa-user fa-fw"></i>
             </Link> */}
-            <Link to="/agility" className="btn btn-primary text-white" onClick={logout}>
+            <Link to="/" className="btn btn-primary text-white" onClick={logout}>
               Logout
             </Link>
             {/* <ul

@@ -41,7 +41,7 @@ const TopMenubar = () => {
         localStorage.removeItem("auth_name");
         localStorage.removeItem("admin");
         swal("Success", res.data.message, "success");
-        navigate("/agility");
+        navigate("/");
       }
     });
   };
@@ -128,13 +128,13 @@ const TopMenubar = () => {
           id="navbar"
         >
           <Container>
-            <Navbar.Brand as={Link} to="/agility">
+            <Navbar.Brand as={Link} to="/">
               <Image src={Logo} alt="Shanthas Designs and Prints Logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto me-auto">
-                <Nav.Link as={Link} to="/agility">
+                <Nav.Link as={Link} to="/">
                   Home
                 </Nav.Link>
                 <Nav.Link as={Link} to="/about-us">

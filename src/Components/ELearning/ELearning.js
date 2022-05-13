@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row} from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Helmet from "react-helmet";
 import Footer from "../Includes/Footer";
 import TopMenubar from "../Includes/TopMenubar";
@@ -37,7 +37,7 @@ const ELearning = () => {
         /> */}
       </Helmet>
       <TopMenubar />
-    <div id="ic-agile" className="bg-primary">
+      <div id="ic-agile" className="bg-primary">
         <Container>
           <Row>
             <Col md={12}>
@@ -92,9 +92,9 @@ const ELearning = () => {
 
       <div className="pt-3 pb-3 pt-md-5 pb-md-5">
         <Container>
-        <h2 className="text-center text-primary">Agile Fundamentals</h2>
+          <h2 className="text-center text-primary">Agile Fundamentals</h2>
           <AgileFundamentals />
-          <AgileCoachingFundamentals /> 
+          <AgileCoachingFundamentals />
         </Container>
       </div>
       <Footer />
