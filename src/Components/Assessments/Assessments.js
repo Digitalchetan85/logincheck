@@ -3,35 +3,38 @@ import { Col, Container, Row, Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import TopMenubar from "../Includes/TopMenubar";
 import Footer from "../Includes/Footer";
+import img1 from "../Images/assessments/14.png"
+import img2 from "../Images/assessments/15.png"
+import img3 from "../Images/assessments/16.png"
 
 const Assessments = () => {
   const courses = [
     {
       id: 1,
-      // imgurl: img1,
+      imgurl: img1,
       alt: "",
-      title: "Assessment 1",
-      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Agile Team Assessment",
+      // desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: 1999,
       ActualPrice: 599,
       to: "/agility-team-assessments",
     },
     {
       id: 2,
-      // imgurl: img2,
+      imgurl: img2,
       alt: "",
-      title: "Assessment 2",
-      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Agile Coaching Assessment",
+      // desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: 1499,
       ActualPrice: 679,
-      to: "/agile-coach-assessment",
+      to: "/assessments-coaching",
     },
     {
       id: 3,
-      // imgurl: img3,
+      imgurl: img3,
       alt: "",
-      title: "Assessment 3",
-      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Agile Leadership Assessment",
+      // desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: 1799,
       ActualPrice: 699,
       to: "/sample-assessment-test",
@@ -62,7 +65,7 @@ const Assessments = () => {
         </Container>
       </div>
 
-      <div className="py-3 py-md-5">
+      <div className="py-3 py-md-5 d-none">
         <Container>
           <Row>
             <Col md={12}>
