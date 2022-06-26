@@ -93,9 +93,9 @@ const TopMenubar = () => {
                 <small>
                   <a
                     className="text-primary text-decoration-none fw-bold"
-                    href="tel:08147203771"
+                    href="tel:09686409060"
                   >
-                    <i className="fas fa-phone-volume"></i> +91 81472 03771
+                    <i className="fas fa-phone-volume"></i> +91 96864 09060
                   </a>
                 </small>
               </div>

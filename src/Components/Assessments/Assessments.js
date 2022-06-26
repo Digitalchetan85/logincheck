@@ -6,6 +6,7 @@ import Footer from "../Includes/Footer";
 import img1 from "../Images/assessments/14.png"
 import img2 from "../Images/assessments/15.png"
 import img3 from "../Images/assessments/16.png"
+import Helmet from "react-helmet";
 
 const Assessments = () => {
   const courses = [
